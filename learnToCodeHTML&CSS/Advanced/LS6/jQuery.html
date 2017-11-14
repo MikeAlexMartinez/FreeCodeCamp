@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My HTML and CSS Code Examples</title>
+        <style>
+            body {
+                color: #333;
+                font:  14px/24px "Open Sans", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", Sans-Serif;
+            }
+            strong {
+                font-weight: 600;
+            }
+            .demo {
+                margin-top: 20px;
+            }
+            .notice-warning {
+                background: linear-gradient(#fce37e, #ffd632);
+                border: 1px solid #ffd632;
+                border-radius: 6px;
+                padding: 10px 16px;
+                text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
+            }
+            .notice-close,
+            .fade-close {
+                margin-top: 0;
+                background: #fce37e;
+                background: rgba(255, 255, 255, .5);
+                border-radius: 50%;
+                box-shadow: inset 0 1px 2px rgba(178, 133, 0, .9), inset 0 -1px 2px rgba(255, 255, 255, .25);
+                color: #b28500;
+                cursor: pointer;
+                font-size: 18px;
+                font-weight: 600;
+                height: 24px;
+                float: right;
+                text-align: center;
+                transition: color .15s ease;
+                width: 24px;
+            }
+            .notice-close:hover,
+            .fade-close:hover {
+                color: #8c6900;
+            }
+
+            .panel {
+                border-top: 2px solid #9799a7;
+            }
+            .panel-stage {
+                border-radius: 0 0 6px 6px;
+                box-shadow: 0 0 5px rgba(0, 0, 0, .25);
+                display: none;
+                height: 80px;
+                margin: 0 auto;
+                width: 80%;
+            }
+            .panel-tab {
+                background: linear-gradient(#fff, #f4f5f4);
+                border: 1px solid #dedede;
+                border-top: 0;
+                border-radius: 0 0 4px 4px;
+                color: #0087cc;
+                display: block;
+                font-size: 11px;
+                font-weight: bold;
+                padding: 5px 0;
+                margin: 0 auto;
+                text-align: center;
+                text-decoration: none;
+                text-transform: uppercase;
+                width: 80px;
+            }
+            .panel-tab:hover {
+                color: #ff7b29;
+            }
+            .panel-tab span {
+                font-size: 9px;
+                padding-left: 2px;
+            }
+
+
+            .tabs {
+                max-width: 538px;
+            }
+            .tabs-nav {
+                padding-left: 0;
+                list-style: none;
+            }
+            .tabs-nav li {
+                float: left;
+                width: 50%;
+            }
+            .tabs-nav li:first-child a {
+                border-right: 0;
+                border-top-left-radius: 6px;
+            }
+            .tabs-nav li:last-child a {
+                border-top-right-radius: 6px;
+            }
+            a {
+                background: #eaeaed;
+                border: 1px solid #cecfd5;
+                color: #0087cc;
+                display: block;
+                font-weight: 600;
+                padding: 10px 0;
+                text-align: center;
+                text-decoration: none;
+            }
+            a:hover {
+                color: #ff7b29;
+            }
+            .tab-active a {
+                background: #fff;
+                border-bottom-color: transparent;
+                color: #2db34a;
+                cursor: default;
+            }
+            .tabs-stage {
+                margin: 0;
+                border: 1px solid #cecfd5;
+                border-radius: 0 0 6px 6px;
+                border-top: 0;
+                clear: both;
+                padding: 24px 30px;
+                position: relative;
+                top: -1px;
+            }
+        </style>
+        
+    </head>
+    <body>
+        <div class="notice-warning instant demo">
+            <div class="notice-close">&#215;</div>
+            <strong>Warning!</strong> I&#8217;m about to lose my cool.
+        </div>
+
+        <div class="notice-warning fade demo">
+            <div class="fade-close">&#215;</div>
+            <strong>Warning!</strong> I&#8217;m about to lose my cool (slowly).
+        </div>
+
+        <div class="panel demo">
+            <div class="panel-stage"></div>
+            <a href="#" class="panel-tab">Open <span>&#9660;</span></a>
+        </div>
+
+        <div class="tabs demo">
+            <ul class="tabs-nav">
+                <li><a href="#tab-1">Features</a></li>
+                <li><a href="#tab-2">Details</a></li>
+            </ul>
+            <div class="tabs-stage">
+                <div id="tab-1">.Lorem ipsum Tabest 1..</div>
+                <div id="tab-2">.Lorem ipsum Tabiest 2..</div>
+            </div>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('.notice-close').on('click', function(evt) {
+                    $('.instant').remove();
+                });
+
+                $('.fade-close').on('click', function(evt) {
+                    $('.fade').fadeOut('slow', function(event) {
+                        $(this).remove();
+                    });
+                });
+
+                $('.panel-tab').on('click', function(evt) {
+                    evt.preventDefault();
+                    $('.panel-stage').slideToggle('slow', function(evt) {
+                        if ($(this).is(':visible')) {
+                            $('.panel-tab').html('Close <span>&#9650;</span>');
+                        } else {
+                            $('.panel-tab').html('Open <span>&#9660;</span>');
+                        }
+                    });
+                });
+
+                // Show first tab by default
+                $('.tabs-stage div').hide();
+                $('.tabs-stage div:first').show();
+                $('.tabs-nav li:first').addClass('tab-active');
+
+                // Change tab class and display tab content
+                $('.tabs-nav a').on('click', function(event) {
+                    event.preventDefault();
+                    $('.tabs-nav li').removeClass('tab-active');
+                    $(this).parent().addClass('tab-active');
+                    $('.tabs-stage div').hide();
+                    $($(this).attr('href')).show();
+                });
+            });
+        </script>
+    </body>
+</html>

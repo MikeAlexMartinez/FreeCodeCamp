@@ -1,0 +1,2336 @@
+#####################################
+# ADVANCED LEARN TO CODE HTML & CSS #
+#####################################
+
+Advanced:
+1 - Performance & Organisation
+2 - Detailed Positioning
+3 - Complex Selectors
+4 - Responsive Web Design
+5 - Preprocessors
+6 - jQuery
+7 - Transforms
+8 - Transitions & Animations
+9 - Feature Support & Polyfills
+10 - Extending Semantics & Accessibility
+
+/# LESSON 1 - Performance And Organisation #/
+
+## HTML
+    Minify & Compress Files
+    Cache Common Files
+
+## CSS
+    Strategy & structure
+    Performance Driven Selectors
+    Reusable code
+    Reduce HTTP Requests
+
+Taking the time to design the right structure for a website will can make the
+development of it much smoother, while also improving the performance of the
+site itself.
+
+Performance often abides by the 80/20 rule where 20% of the optimizations can 
+result in speed increases of 80%.
+
+
+# Strategy & Structure
+
+First part to improving a websites performance is building a strong directory 
+architecture, outlining design patterns and finding ways to reuse code.
+
+-> Style Architecture
+
+  There are many ways one could do this but one way is to do the following:
+
+  Separate Styles based on intent:
+    Directories for: 
+      - Common Base Styles
+        Styles and variables to be used across the website, layout, and 
+        typography.
+
+      - User Interface Components
+        Broken down into component files such as alerts and buttons.
+      
+      - Business Logic Modules
+        Different sections of a page dependent on business needs.
+
+  Separation of style encourages well thought out presets and the ability
+  for styles to be widely shared and reused.
+
+  There are other methodologies for organising CSS such as:
+    Object Oriented CSS
+    Scalable and Modular Architecture for CSS
+
+-> Object Oriented CSS
+
+  By Nicole Sullivan
+
+  - Separate Structure from skin
+    Abstract the layout of an element away from the theme of the website.
+
+  - Separate content from container
+    Removing dependency of a parent element nesting children elements.
+    An elements style should be the same irrespective of it's parent.
+
+  OOCSS advocates building a component library, staying flexible, and 
+  utilizing a grid.
+
+-> Scalable & Modular Architecture for CSS
+
+  By Jonathan Snook
+
+  Involves breaking styles into 5 categories
+    - Base     Core elements, general defaults
+    - layout   sizing and grid styles of different elements
+    - Modules  More speccific styles targeting individual parts of a page
+    - State    Used to Augment or override other styles, in the event that 
+              a module includes an alternate state.
+    - Theme    Includes styles based around the skin, or look and feel, of
+              different modules.
+
+# Performance Drive Selectors
+
+Correct and appropriate usage of selectors makes a huge difference to how fast
+a page renders, and also makes a website more manageable.
+
+-> Keeps Selectors Short
+
+  - Minimising specificity allows for better inheritance and portability
+
+  Generally highly specific styles, would better utilise a class. Avoiding
+  highly specific styling keeps the specificity score lower, and lowers the 
+  chance of styles changing should the order of the styles change.
+
+-> Favor Classes
+
+  Classes render quickly and allow for code reuse.
+
+  Keep a eye on the key selector, which is the selector unit at the end.
+  Do not prefex class selectors with an element. Doing so prohibits those
+  styles from easily being applied to a different element.
+
+  Don't use ID selectors as they are too specific and don't allow for reuse
+  of styling.
+
+# Reusable Code
+
+Quickest way to make a file size smaller is through code reuse.
+
+Reusing code doesn't mean departing from OOCSS or SMACSS either. You can
+either use multiple labels for a group of styles, or you can use multiple
+tags on one element, layering on each style in turn.
+
+# Reduce HTTP Requests
+
+Every file request increase the load time. To reduce this you can do 
+a number of things.
+
+To reduce HTTP Requests you can do the following:
+
+-> Combine Like Files:
+   Compress JS fiels together, CSS files together.
+
+   CSS should be loaded at the beginning of a document and JS should be
+   loaded at the end.
+
+-> Use image sprites.
+
+
+
+# Minify & Compress Files
+
+  Easy way to reduce file size is minifying and compressing code.
+
+  Can use tools such as GZIP etc.
+
+  It's possible to see just how much smaller a compressed file is by using
+  developer tools.
+
+-> Image Compression
+
+  Compressing images makes a big difference to overall webpage size.
+
+  You should also define the correct size element on the page for the image,
+  Loading a picture that is two big and scaling it down is bad practice as it
+  means you have sent more data over the wire than necessary.
+
+  You can use image sprites with image Positioning to pack lots of images into 
+  a single image file.
+
+-> Image Data URI
+
+  A URI works well for small images that never change by removing the need
+  for a request altogether. They can be difficult to change and maintain. 
+  They don't work in older browsers (IE7 and below). If using URIs can help 
+  cut down requests then the risks and pitfalls are usually worth the gain.
+
+  Tools can be used to generate the data.
+
+  Make sure the URI weight is smaller than the image file itself.
+
+# Cache Common Files
+
+  As with gzipping files, setting the expires headers for caching files can 
+  be set within the .htaccess file.
+
+  Images, videos, web fonts, and common media types are often cached fo a month
+  CSS and JS are often cached for a year. It they are changed more often than 
+  that the file will need to be changed, preferably versioned.
+
+
+/# LESSON 2 - Detailed Positioning #/
+
+## CSS
+    Containing Floats
+    Position Property
+    Z-index Property
+
+There are a number of different techniques for positioning content.
+
+# Containing Floats
+
+Floating elements is a more natural process for designing a websites layout.
+
+When floated, an element's position is defined by where other elements are 
+positioned around it.
+
+While floats are powerful they do come with there own problems.
+  - Most common problem involves a parent element that contains too many
+  elements. When content is floated it no longer affects it's parents size.
+    One way to prevent this is to use one of the following techniques:
+    - empty div clear: both;
+    
+    - overflow technique - apply 'overflow: auto;" to the group.
+      A drawback of the overflow technique is that on smoe browsers a scroll
+      bar is present, or if the child element is larger than the parent, some
+      of the element will appear cropped.
+
+    - clearfix - This has better browser support. Add's anonymous table-cell
+      element using the display: table; declaration.
+
+      note: Only one before and after pseudo-element are allowed per element.
+
+# Position Property
+
+-> Position Static: This is the default value of elements.
+  When static they don't have, nor will accept box offset properties.
+
+-> Position Relative: Very similar to Position static, except the element 
+  now excepts box-offset properties. The element is shifted from it's default 
+  position by the amounts defined. The relatively positioned may overlap or
+  underlap other elements.
+
+  in the event that incompatible top and bottom offsets are applied, Top takes
+  precedence. If incompatible right and left offsets are uesd, left takes 
+  precedence.
+
+-> Position Absolute: These are removed from the flow of the page and are
+  positioned in relation to their closest containing parent. Not specifying 
+  an offset will position the element in the top left corner of the containing
+  element.
+
+  Where there is a set height and width, incompatible offsets are dealt with 
+  as they are with position relative.
+
+  If there is no height or width, the offsets are used to calculate an 
+  appropriate height and width.
+
+-> Position Fixed: Using the position value of fixed works like absolute
+  except the element is positioned relative to the viewport.
+
+  This is most commonly used to create fixed Headers / footers.
+
+# Z-Index
+
+  This can be used to change how elements are layered on the page. By default,
+  elements that positioned later in the html appear on top. To apply a z-index
+  you must first apply a position value of 'relative' 'absolute' or 'fixed'.
+
+  The higher the z-index, the higher on the stack the element will appear.
+
+/# LESSON 3 - Complex Selectors #/
+
+## CSS
+    Common Selectors
+    Child Selectors
+    Sibling Selectors
+    Attribute selectors
+    Pseudo-classes
+    Pseudo-elements
+
+# Common Selectors
+
+The main three types of selector:
+  Type: div
+  Class: .class
+  ID: #id
+
+  ID should only be used once per page.
+
+
+# Child Selectors
+
+  Descendant Selector: 'h2 a' selects all a tags within a h2 tag.
+  Direct Child Selector: 'h2 > a' Only selects a elements whose parent element
+    is a h2 element.  
+
+# Sibling Selectors
+
+  General sibling selector: 'h2 - p' - this selects all p elements who follow
+    h2 elements, and also share the same parent.
+
+  Adjacent sibling Selector: 'h2 + p' Only selects a p element if it directly
+    follows a h2 element and shares a parent.
+
+# Attribute Selectors
+
+  Attribute Present Selector: [attribute] selects any element that contains
+    the attribute within the square brackets. You can also prefix the square
+    brackets.
+
+  Attribute Equals Selector: [att="value"] selects elements where an attribute 
+    is present with a specific value.
+
+  Attribute contains selector: [att*="value"] selects element where attribute 
+    contains the defined value.
+
+  Attribute Begins with [att^="value"] selects element where attribute Begins
+    with listed value
+
+  Attribute Ends with [att$="value"] selects element where attribute Ends
+    with listed value
+
+  Attribute Spaced Selector [att-="value"] selects element where an attribute 
+    with values that are space separated, and the value is one of the contained 
+    values.
+
+  Attribute Hyphenated Selector [att|="en"] selects an element where the value
+    of an attribute is Hyphenated and the first section equals the value listed
+
+# Pseudo-classes
+
+  Pseudo classes aren't directly started in the markup but are dynamically 
+  populated as a result of users actions.
+
+  Link Pseudo classes: 'a:link', 'a:visited', define if a link has been visited.
+
+  User Action Pseudo-classes: ':hover, :active, :focus'. Are applied to an 
+    element when a user is performing a defined action.
+
+  User Interface Stat Pseudo-classes:
+    :enabled          Element is available for use
+    :disabled         Element has disabled attribute
+    :checked          Element has been selected (checkbox, radio)
+    :indeterminate    Element has not yet been selected, or deselected.
+
+  Structural & Positional Pseudo-classes:
+    :first-child      First child of parent element 
+    :last-child       last child of parent element
+    :only-child       Only child of parent element
+    p:first-of-type   First of type within parent (p in this ex)
+    p:last-of-type    Last of type within parent element (p in this ex)
+    p:only-of-type    
+
+    a:nth-child(n)
+    a:nth-last-child(n)
+    a:nth-of-type(n)
+    a:nth-last-of-type(n)
+
+    n is an expression and can call in the following formats:
+      an,
+      an+b
+      an-b
+      n+b
+      -n+b
+      -an+b
+
+    They can roughly be translated as (a x n) + or - b
+
+    The 'odd' or 'even' can also be used.
+
+    li:nth-child(4n+7) would select every fourth item starting with the 7th.
+  
+  
+  Target Pseudo Color: Targets an element based on an elements ID Attribute 
+  matches the URI fragment identifier. Commonly used when using on page links,
+  or linking to oher parts of the same page.
+
+  :empty targets elements with no contents whatsoever.
+
+  :not(<selector>) targets every element of a certain type except that listed.
+    e.g. div:not(.awesome) identify every div except one with class .awesome.
+
+
+# Pseudo-elements
+
+Are elements that don't exist in the document tree. Only one pseudo-element may
+be used within a selector at any one time.
+
+-> Textual Psuedo-elements:
+
+  :first-letter
+  :first-line
+
+-> Generated Content Pseudo-elements:
+  create new inline level pseudo-elements just inside the selected
+  element. One use of this is to add user interface components to
+  the page without having to clutter the document with unsemantic
+  elements.
+
+  :before creates a pseudo-element before, or infront of, the selected
+          element.
+
+  :after creates a pseudo-element after or behind the selected element.      
+
+-> Fragment Pseudo-element
+
+  The ::selection fragment pseudo-element identifies part of a document
+  that has been selected. The selection can then be stylised but only using the 
+  following properties:
+    - color
+    - background
+    - background-color
+    - text-shadow
+
+  selection requires double colons ::
+
+  in firefox, you should use the vendor preset. -moz-
+
+
+/# LESSON 4 - Responsive Web Design #/
+
+## HTML
+    Responsive Overview
+    Viewport
+
+## CSS
+    Flexible Layouts
+    Media Queries
+    Mobile First
+    Flexible Media
+
+# Responsive Overview
+
+The art of designing a website so that it works on any device, regardless
+of screen size.
+
+Devleoped by Ethan Marcotte
+
+# Responsive Vs. Adaptive Vs. Mobile
+
+Responsive and adaptive web design are closely related. And often transposed
+as one in the same. 
+
+Responsive generally means to react quickly and positively to any change,
+while adaptive means to be easily modified for a new purpose or situation, 
+such as change. Responsive design will continually and fluidly change
+based on different factors.
+
+Mobile normally means to build a completely different website for mobile users.
+
+The most popular technique is to ue responsive web design, favoring design that
+dynamically adapts to different browser and device viewports, changing layout
+and content along the way.
+
+# Flexible Layouts
+
+Responsive web design is broken down into three different components.
+  - Flexible Layouts
+  - Media Queries
+  - Flexible Media
+
+Flexible Grids tend to be built using relative units such as percentages or
+em units. These relative length are then used to declare common grid property 
+values such as width, margin, or padding. 
+
+CSS3 introduced new relative length units, specifically related to the viewport.
+  - vw - Viewports width
+  - vh - viewports height
+  - vmin - Minimum of the viewports height and width
+  - vmax - Maximum of the viewports height and width
+
+The formula to identify the proportions of a flexible layout using relative 
+values:
+
+  target / context = result
+
+-> Flexible Grid
+
+  Using this formula we can create a flexible grid that scales directly in line with the
+  viewport.
+
+  For even more control we can utilise the:
+    - min-width
+    - max-width
+    - min-height
+    - max-height
+
+# Media Queries
+
+  Media Queries provide the ability to specify different styles for individual browser 
+  and device circumtances. 
+
+-> Initialising Media Queries
+
+  There are a few ways to initialise media queries.
+  - Use @media rule in an existing style sheet
+  - importing a new style sheet using the @import rule.
+  - link to a separate stylesheet from within the HTML.
+
+  Recommended to use @media rule within single stylesheet to avoid
+  additional requests.
+
+  Each media Query may include a media types followed by one or more expressions.
+   Common Media types are:
+    - all
+    - screen
+    - print
+    - tv
+    - braille
+    - 3d-glasses
+  default is screen.
+
+  When the query expression that follows a media query is true then the containing styles
+  are applied.
+
+-> Logical Operators in Media Queries.
+  - and   - combines conditions
+  - not   - negates a condition
+  - only  - only for html5 plus.
+
+  multiple queries can be chained using a comma, which acts as an 'or' like operator.
+
+  e.g.
+
+    '@media all and (min-width: 800px) and (max-width: 1024px) {...}'
+
+    selects all screen types with width between 800px and 1024px.
+
+  If using 'not' or 'only' operators a media type can be left off. In which case it defaults to all.
+
+-> Media Features in Media Queries
+
+Media Queries come to life with media features. Media features identify
+what attributes or properties will be targeted within the media query 
+expression.
+
+-> Height & Width Media Features.
+
+Determining height and width is one of the most common media features.
+height and width is determined with the 'height' and 'width' media features.
+Each of these media features may then be preficed with the min and max 
+qualifiers, building a feature such as min-width or max-width.
+
+The height and width features are based off of the viewport rendering area,
+The browser window for example. Values for these height and width media 
+features may be any length unit. Using minimum and maximum prefixes 
+
+-> Orientation Media Feature
+
+The orientation media feature determine if a device is in the landscape or 
+portrait orientation. thee landscape mode is triggered when the width is larger
+than the height.
+
+-> Aspect ratio media 
+
+The aspect-ratio and device-aspect-ratio features specify the width/height pixel ratio
+of the targeted rendering area of the output device. 
+
+e.g.
+
+@ media all and (min-device-aspect-ratio: 16/9) {...}
+
+-> Pixel Ratio Media Features
+
+Helps identify high resolution devices.
+  
+-> Resolution Media Feature
+
+Specifies the DPI (dots per inch), of the device. It also accepts dots per pixel and dots per
+centimeter. It's possible to use min and max prefixes.
+
+e.g.
+
+@media print and (min-resolution: 300dpi) {...}
+
+-> Other Media Features
+
+Identify the available output colours with the use of color, color-index, and monochrome
+features. Identify bitmap devices with the grid feature. Identify the scan feature of a tv
+with the scan feature.
+
+-> Browser Support
+
+IE8 and below doesn't support Media Queries. Respond.js and CSS3-MediaQueries.js can help
+polyfill them though.
+
+-> Identifying Breakpoint
+
+ones instinct migt be to write breakpoints at sizes determined by device resolutions but this 
+is a mistake. One should make a website responsive to all sizes and only once a site begins to
+look weird or it breaks, should one introduce a breakpoint.
+
+# Mobile First
+
+One popular technique is to use a mobile-first methodology. I.e. the default styles and
+functionality of a website are performed as if for a mobile phone, and as the device 
+capabilities improve / get larger, you can layer on more styles and better functionality.
+
+A breakout mobile-first media query might look as follows:
+
+/* Default styles first then media Querires */
+@ media screen and (min-width: 400px) {...}
+@ media screen and (min-width: 600px) {...}
+@ media screen and (min-width: 1000px) {...}
+@ media screen and (min-width: 1400px) {...}
+
+Generally speaking one should also avoid excessive use of CSS3 shadows, gradients and Transforms
+when on a mobile device as these can cause heavy loading and can even reduce a device's battery 
+life.
+
+/* Default Media */
+body {
+  background: #ddd;
+}
+
+/* Media for Larger Devices */
+@media screen and (min-width: 800px) {
+  body {
+    background-image: url("bg.png") 50% 50% no-repeat;
+  }
+}
+
+# Viewport
+
+Mobile devices don't always interpret websites sizes properly, and so its necessary to
+utilise the viewport meta tag.
+
+-> Viewport Height and Width
+
+This will define the height or width of the viewport as necessary.
+It is recommended to use the device defaults by applying device-height and device-width defaults.
+
+e.g.
+
+<meta name="viewport" content="width=device-width">
+
+-> Viewport Scale
+
+Viewport scale can be controlled with the minimum-scale, maximum-scale, initial-scale and 
+user-scalable properties.
+
+initial scale should be set to 1 as this sets the ratio between the viewport size and the
+how much of the website is displayed.
+
+scales need to be values between 0 and 10.
+
+If a minimum-scale or maximum-scale is set to the same value as the initial-scale then user-
+scaling (zooming) will be disabled and is therefore discouraged as it harms site accessibility.
+
+-> Viewport Resolution
+
+You can use the target-densitydpi if you need to target specific resolutions. although this is 
+rare.
+
+-> Combining Viewport Values
+
+the viewport meta tag will accept individual values as well as multiple values.
+
+e.g.
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+-> CSS Viewport
+
+Some browsers support the viewport being applied in the CSS but this isn't supported across the 
+board.
+
+# Flexible Media
+
+Images, media and videos need to be scaled too. This ensures as the viewport gets smaller, so 
+do the images etc.
+
+One way to do this is to apply a max-width of 100%, so that images scale down with their parent 
+components.
+
+However this doesn't always work with embedded media so you need to use a few specific CSS
+properties to achieve the desired flexibility.
+
+e.g.
+
+/* HTML */
+
+<figure>
+  <iframe src="https://www.youtube.com/embed/4Fqg43ozz7A"></iframe>
+</figure>   
+
+/* CSS */
+figure {
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 */
+  position: relative;
+  width: 100%;
+}
+iframe {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+
+/# LESSON 5 - Preprocessors #/
+
+Preprocessors are programs that take one type of input and convert it in to
+a valid syntax of some form.
+
+Haml is a popular preprocessor for converting a minimal piece of html, into
+valid html.
+
+Sass is similar except it changed into valid css. It also adds additional
+features such as the use of variables.
+
+# HAML
+
+HAML promotes dry and well structured markup.
+
+HAML requires ruby to run. 
+
+to convert a file you need to run:
+
+haml index.html index.html
+
+
+-> Doctype
+
+To write the Doctype you would write:
+
+!!! 5
+
+=
+
+<!DOCTYPE html>
+
+
+-> Declaring Elements
+
+Elements are initialised with a %
+
+%body
+
+=
+
+<body></body>
+
+-> Attributes
+
+Are added using () or {}.
+
+e.g.
+
+%img(src="img.jpg" alt="awesome picture")
+
+-> Classes and IDs
+
+Can be added directly after the element declaration and 
+chained together.
+
+e.g. %section.feature.special#hello
+
+-> Div Classes and IDs
+
+Where a div is used with classes and an id, the element can be omitted
+
+e.g.
+
+%div#logo.header-logo
+
+becomes
+
+#logo.header-logo
+
+-> Boolean attribute
+
+Are handled the same way as they would be in attributes.
+
+%input(type="checkbox" checked)
+
+= 
+
+<input type="checkbox" checked>
+
+-> Escaping text
+
+A benefit of haml is the ability to run ruby. Where this isn't
+desirable you can escape characters \
+
+e.g. 
+
+.author
+  = @author
+  \= @author
+
+=
+
+<div class="author">
+  Shay Howe
+  = @author
+</div>
+
+Occasionally this isn't sufficient. But ruby can be used to 
+generate the desired string.
+
+e.g.
+
+%p
+  Shay is
+  = succeed "." do
+    %a(href="#") awesome
+
+-> Comments
+
+Comments are created using a single forward slash '/'
+
+e.g.
+
+/ Commented line
+
+/
+  Commented block - Needs to be nested underneath comment.
+
+-> Conditional Comments 
+
+are handled differently in haml. To create them you need to use
+square brackets directly after forward slash
+
+e.g.
+
+/[if lt IE 9]
+  %script(src="html5shiv.js")
+
+-> Silent Comments
+
+These comments are comments that will only show up in your haml code.
+
+so this:
+
+%div
+  -# Removed line
+  Actual line
+
+=
+
+<div>
+  Actual line
+</div>
+
+-> Common Filters
+
+Here are the most common filters with teh more popular ones being :css and :javascript
+
+- :cdata    - :coffee     - :css
+- :erb      - :esaped     - :javascript
+- :less     - :markdown   - :maruku
+- :plain    - :preserve   - :ruby
+- :sass     - :scss       - :textile
+
+e.g. javascript
+
+:javascript
+  $('button').on('click', function(event) {
+    $('p').hide('slow');
+  });
+
+=
+
+<script>
+  $('button').on('click', function(event) {
+    $('p').hide('slow');
+  });
+</script>
+
+
+e.g. css or sass
+
+:css
+  .container {
+    margin: 0 auto;
+    width: 960px;
+  }
+
+:sass
+  .container
+    margin: 0 auto
+    width: 960px
+
+=
+
+<style>
+  .container {
+    margin: 0 auto;
+    width: 960px;
+  }
+</style>
+
+-> Ruby Interpolation
+
+There may be times that you need to interpolate ruby within the haml code
+
+e.g.
+
+%div{:class => "student-#{@student.name}"}
+
+<div class="student-shay"></div>
+
+
+# SCSS & Sass
+
+Also uses ruby to run.
+
+to convert a file you need to run the following command:
+
+sass styles.sass styles.css
+
+You can also run a watcher on sass files, so any changes cause
+a reload of the output files.
+
+e.g.
+
+sass --watch styles.sass:styles.css
+
+You can also watch entire directories
+
+sass --watch assets/sass:public/css
+
+You can also convert Sass to  Scss and vice versa
+
+e.g.
+
+sass-convert styles.sass styles.scss
+
+sass-convert styles.scss styles.sass
+
+
+-> Syntax
+
+The difference between sass and scss it their syntax.
+
+scss isn't too dissimilar from css and css can run inside of scss.
+
+sass however is much stricter and any indenting or character errors will
+prohibit the styles form compiling. Sass omits all curly braces and semi-colons
+relying on indentation and clear line-breaks for indentation.
+
+scss
+
+.new {
+  color: #ff7b29;
+  font-weight: bold;
+  span {
+    text-transform: uppercase;
+  }
+}
+
+sass
+
+.new
+  color: #ff7b29
+  font-weight: bold
+  span
+    text-transform: uppercase
+
+compiled css
+
+.new {
+  color: #ff7b29;
+  font-weight: bold;
+}
+.new span {
+  text-transform: uppercase;
+}
+
+-> Nesting
+
+Syntax of sass and scss allows nesting of selectors. However it's important 
+not to go overboard as doing so will increase the specificity of your selector.
+
+e.g.
+
+sass
+
+.portfolio
+  border: 1px solid #9799a7
+  ul
+    list-style: none
+  li
+    float:left
+
+scss
+
+.portfolio {
+  border: 1px solid #9799a7;
+
+  ul {
+    list-style: none;
+  }
+
+  li {
+    float: left;
+  }
+}
+
+css
+
+.portfolio {
+  border: 1px solid #9799a7;
+}
+.portfolio ul {
+  list-style: none;
+}
+.portfolio li {
+  float: left;
+}
+
+
+-> Nesting Properties
+
+In Sass you can also nest properties.
+
+e.g.
+
+sass
+
+div
+  font:
+    family: Baskerville, Palatino, serif
+    style: italic
+    weight: normal
+
+=
+
+compiled css
+
+div {
+  font-family: Baskerville, Palatino, serif;
+  font-style: italic;
+  font-weight: normal;
+}
+
+-> Nested media queiries
+
+You can also nest media queries inside of a selector
+
+sass
+
+.container
+  width: 960px;
+  @media screen and (max-width: 960px)
+    width: 100%
+
+compiled css
+
+.container {
+  width: 960px;
+}
+@media screen and (max-width: 960px) {
+  .container {
+    width: 100%;
+  }
+}
+
+-> Parent Selector
+
+Sass allows for the additional of more classes, or pseudo-selectors
+with the use of an ampersand.
+
+e.g.
+
+sass
+
+a
+  color: #0087cc
+  @hover:
+    color: #ff7b29
+
+compiled CSS
+
+a {
+  color: #0087cc;
+}
+a:hover {
+  color: #ff7b29;
+}
+
+-> Parent Key Selector
+
+The parent key selector '&' can also be added to later selectors to create
+compound selectors. Lot's of ways to use this, but one common way is to allow
+feature detection.
+
+Sass
+
+.btn
+  background: linear-gradient(#fff, #9799a7);
+  .no-cssgradients &
+    background: url("gradient.png") 0 0 repeat-x
+
+Compiled CSS
+
+.btn {
+  background: linear-gradient(#fff, #9799a7);
+}
+.no-cssgradients .btn {
+  background: url("gradient.png") 0 0 repeat-x;
+}
+
+-> Comments
+
+Sass allows for normal CSS comments which will be included in the output by using
+the traditional /* */. YOu can also include silent comments by using //.
+Anything that follows the two forward slashes or is indented below will be removed 
+from the output.
+
+Sass
+
+/* Normal Comment */
+div
+  background: #333
+// Omitted Comment
+strong
+  display: block
+
+Compiled CSS
+
+/* Normal Comment */
+div {
+  background: #333;
+}
+strong {
+  display: block;
+}
+
+-> Variables
+
+Variables are the mos sought after feature of CSS that Sass provides. We can define
+variables and then reuse them as necessary.
+
+Variables are defined with a $ sign.
+
+Sass
+
+$font-base: 1em
+$serif: "Helvetica-Neue", Arial, "Lucida Grande", sans-serif
+
+p
+  font: $font-base $serif
+
+Compiled CSS
+
+p {
+  font: 1em "Helvetica-Neue", Arial, "Lucida Grande", sans-serif
+}
+
+-> Variable Interpolation
+
+For the most part, variables can be used anywhere inside of a Sass document.
+In some places a variable needs to be interpolated using #{$var} syntax.
+Places include classname, property name, or inside plan text.
+
+Sass
+
+$location: chicago
+$offset: left
+
+.#{$location}
+  #{$offset}: 20px
+
+Compliled CSS
+
+.chicago {
+  left: 20px;
+}
+
+-> Calculations
+
+Sass can do calculations in a variety of ways. Calculations can be done with or 
+without units of measurement. When done with units, the units from the first number
+will be that used in the compound value.
+
+Calculations with + * - and % are straight forward.
+
+Calculations with division are slightly more complicated.
+
+For division to take place it should either:
+  - use a variable
+  - be wrapped in parentheses
+  - be a part of another equation
+
+Sass also uses the usual order of operations.
+
+-> Number Functions
+
+There are a number of number functions that behave as one would expect.
+  - percentage()
+  - round()
+  - ceil()
+  - floor()
+  - abs()
+
+-> Color Operations
+
+On top of numbers, maths may additionally be performed on colors.
+
+-> Color Alterations
+
+It is possible to use certain functions to operate on certain colors.
+  - invert()
+  - complement()
+  - mix()
+  - grayscale()
+
+-> HSLa Color Alterations
+
+Takes things one step further adding even more possible alterations.
+  - lighten()
+  - darken()
+  - saturate()
+  - desaturate()
+  - adjust-hue()
+  - fade-in()
+  - fade-out()
+
+-> Color Manipulation
+
+Outside of altering colors, Sass can directly manipulate colors.
+With this control comes complexity. 
+
+  - change-color() - Set any property of a color
+  $color, [$red], [$green], [$blue], [$hue], [$saturation], [$lightness],
+  [$alpha]
+
+  - adjust-color() - Incrementally manipulate any property of a color
+  $color, [$red], [$green], [$blue], [$hue], [$saturation], [$lightness],
+  [$alpha]
+
+  - scale-color() - Fluidly scale any percentage based on property 
+  of a color
+  $color, [$red], [$green], [$blue], [$saturation], [$lightness],
+  [$alpha]
+
+-> Extends 
+
+Provides a way to easily share and reuse styles without having to explicity
+repeat code or use additional classes, providing a perfect way to keep code 
+modular.
+
+Sass
+
+.alert
+  border-radius: 10px
+  padding: 10px 20px
+
+.alert-error
+  @extend .alert
+  background: #f2dede
+  color: #b94a48
+
+Compiled CSS
+
+.alert,
+.alert-error {
+  border-radius: 10px;
+  padding: 10px 20px;
+}
+
+.alert-error {
+  background: #f2dede;
+  color: #b94a48;
+}
+
+-> Placeholder Selector Extend
+
+To avoid building lots of classes that are never used but are then extended
+you can use a placeholder selector which is used for extending into other
+classes but isn't compiled itself.
+
+Sass
+
+%alert
+  border-radius: 10px
+  padding: 10px 20px
+
+.alert-error
+  @extend %alert
+  background: #f2dede
+  color: #b94a48
+
+Compiled CSS
+
+.alert-error {
+  border-radius: 10px;
+  padding: 10px 20px;
+}
+.alert-error {
+  background: #f2dede;
+  color: #b94a48;
+}
+
+-> Element Selector Extend
+
+Extend also works with regular elements too.
+
+-> Mixins
+
+Mixins provide a way to easily template properties and values, then share
+them amongst different selectors. Mixins are different to Extends because
+mixins allow the passing in of arguments.
+
+Mixins are identified with an @ sign and any arguments following.
+
+They are then called with a + sign and the relevant arguments.
+
+You can use default arguments with Mixins, and then write them over
+if you so wish.
+
+Sass
+
+@mixin btn($color: #fff, $color-hover: #9799a7)
+  color: $color
+  &:hover
+    color: $color-hover
+  
+.btn
+  +btn($color: #fff, $color-hover: #9799a7)
+
+Compiled CSS
+
+.btn {
+  color: #fff;
+}
+.btn:hover {
+  color: #9799a7;
+}
+
+-> Variable arguments
+
+When one or more values need to be passed in to the variable name may end 
+with ... inside of the mixin.
+
+Sass
+
+@mixin box-shadow($shadow...)
+  -webkit-box-shadow: $shadow
+  -moz-boz-shadow: $shadow
+  box-shadow: $shadow
+
+.shadows
+  +box-shadow(0 1px 2px #cecfd5, inset 0 0 5px #cecfd5)
+
+Compiled CSS
+
+.shadows {
+  -webkit-box-shadow: 0 1px 2px #cecfd5, inset 0 0 5px #cecfd5;
+  -moz-boz-shadow: 0 1px 2px #cecfd5, inset 0 0 5px #cecfd5;
+  box-shadow: 0 1px 2px #cecfd5, inset 0 0 5px #cecfd5;
+}
+
+-> Imports
+
+@import allow for the compiling of multiple css files into a single
+file. Minimising HTTP requests.
+
+e.g.
+
+@import "normalize"
+@import "grid", "typography"
+
+creates one file.
+
+-> Loops & Conditionals
+
+Sass supports different control directives. It's imporant to understand
+thes directives aren't intended for everyday styling, but for creating
+detailed mixins and helpers.
+
+  Operators:
+  - < , > , == , <= , >= , !=
+
+  If:
+
+  $shay: awesome
+
+  .shay
+    @if $shay == awesome
+      background: #ff7b29
+    @else if $shay == cool
+      background: #0087cc
+    @else
+      background: #333
+    
+  .shay {
+    background: #ff7b29;
+  }
+
+  For Loop:
+
+  two types, from n to n or from n through n.
+
+  @for $col from 1 to 6
+    .col-#{$col}
+      width: 40px + %col
+    
+  .col-1 {
+    width: 40px;
+  }
+  .col-2 {
+    width: 80px;
+  }
+  .col-3 {
+    width: 1200px;
+  }
+  .col-4 {
+    width: 160px;
+  }
+  .col-5 {
+    width: 200px;
+  }
+
+  Each Loop:
+
+  the @ each rule returns a style for eahch item in a comma separted
+  list.
+
+  @each $class in uxd, rails, html, css
+    .#{class} logo
+      background: url("/img/#{class}.jpg")
+  
+  .uxd-logo {
+    background: url("/img/uxd.jpg");
+  }
+  .rails-logo {
+    background: url("/img/rails.jpg");
+  }
+  .html-logo {
+    background: url("/img/html.jpg");
+  }
+  .css-logo {
+    background: url("/img/css.jpg");
+  }
+
+  The @while rule repeatedly return style into a value becomes false.
+
+  e.g.
+
+  $heading: 1
+  @while $heading <= 6
+    h#{$heading}
+      font-size: 2em - ($heading * .25em)
+    $heading: $heading + 1
+
+
+
+/# LESSON 6 - jQuery #/
+
+## Javascript
+    Javascript Intro
+    jQuery Intro
+    Selectors
+    Traversing
+    Manipulation
+    Events
+    Effects
+
+# Javascript Intro
+
+Javascript is a powerful language that allows the ability to add interactivity to a 
+website.
+
+The best place to reference a JS file is normally at the bottom of a page before the 
+last body tag. Except on occasions where the JS is required to render the page, in 
+which case it will need to be in the document head.
+
+-> Values and Variables
+
+-> Statements
+
+-> Functions
+
+-> Arrays
+
+-> Objects
+
+# jQuery Intro
+
+Written by John Resig in 2006. Simplifies the interaction between HTML, CSS and JS.
+
+Popularity due to ease of use and use of CSS selectors.
+
+First requirement is to reference the library, preferably before you load your own 
+JS file.
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+
+-> jQuery Object
+
+jQuery comes with it's own object, the dollar sign, also known as jQuery.
+
+The dollar sign enables the selection of elements and then returns that element
+to have actions performed on it.
+
+-> Document Ready
+
+Before triggering any jquery, jQuery uses the $(document).ready() function
+to wait for the page to tell jQuery that it's finished loading the html.
+
+-> Selectors
+
+jQuery supports all CSS3 selectors regardless of which browser is being used.
+
+Once a node is selected within $(), the node is binded to the 'this' variable which
+can then be used within your code.
+
+jQuery also has custom filters built in should CSS3 selectors not be enough.
+
+-> Traversing
+
+jQuery supports methods for traversing up and down the dom tree, allowing the filtering
+and selecting of elements as necessary.
+
+e.g.
+
+$('div').not('.type, .collection');
+
+finds all div's that don't have the classes type or collection.
+
+-> Traversing Methods
+
+  Filtering:
+    .eq()         .filter()        .first()
+    .has()        .is()            .last()
+    .map()        .not()           .slice()
+
+  Miscellaneous Traversing:
+    .add()        .andSelf()        .contents()
+    .end()
+
+  Dom Tree Traversal:
+    .children()     .closest()      .find()
+    .next()         .nextAll()      .nextUntil()
+    .offsetParent() .parent()       .parents()
+    .parentsUntil() .prev()         .prevAll()
+    .prevUntil()    .siblings()     
+
+
+-> Manipulation
+
+You can also manipulate elements once you have located them. You can read
+them, add or change attributes or styles. Additionally elements can be altered
+in the DOM, added, or removed completely. Options for manipulating them
+is pretty vast.
+
+Getting and Setting
+
+  A Common use is to get a value, 
+
+  $('img').attr('alt');
+
+  Or to set a value
+
+  $('img').attr('alt', 'Wild Kangaroo');
+
+Attribute Manipulation
+
+  $('li:even').addClass('even-item'); -> add even-item classes to all
+                                          even list items
+  
+  $('p').removeClass(); -> Remove all classes from all p elements.
+
+  $('abbr').attr('title', 'Hello World');
+
+Attribute Manipulation Methods:
+  - .addClass()       - .attr()         - .hasClass()
+  - .prop()           - .removeAttr()   - .removeClass()
+  - .removeProp()     - .toggleClass()  - .val()
+
+-> Style Manipulation
+
+The style of an element can also be changed.
+
+When reading or setting the height, width, or position of an element there
+are a handful of special methods available. Otherwise the css method is 
+available.
+
+e.g.
+
+$('h1 span').css('font-size','normal');
+$('div').css({
+  fontSize: '13px',
+  background: '#f60'
+});
+$('header').height(200);
+$('.extend').height(30 + 'em');
+
+Style Manipulation Methods
+  - .css()            - .height()       - .innerHeight()
+  - .innerWidth()     - .offset()       - .outerHeight()
+  - .outerWidth()     - .position()     - .scrollLeft()
+  - .scrollTop()      - .width()
+
+DOM Manipulation
+
+Lastly, we can make extensive and varied changes to the DOM.
+
+$('section').prepend('<h3>Featured</h3>');
+$('a[target="_blank"]').after('<em>New window.</em>');
+$('h1').text('Hello World');
+
+DOM Manipulation Methods:
+  - .after()          - .append()        - .appendTo()
+  - .before()         - .clone()         - .detach()
+  - .empty()          - .html()          - .insertAfter()
+  - .insertBefore()   - .prepend()       - .prependTo()
+  - .remove()         - .replaceAll()    - .replaceWith()
+  - .text()           - .unwrap()        - .wrap()
+  - .wrapAll()        - .wrapInner()
+
+-> Events
+
+It's very easy, to add event handlers to elements.
+
+Some events have shorthand handlers such as .click(f => ());
+
+All events can use the .on() handler.
+
+e.g.
+
+$('li').on('click', function(evt) {
+  $(this).addClass('saved-item');
+})
+
+Nesting Elements: 
+  It is possible to have multiple events handlers and triggers, nesting one 
+  inside the other.
+
+(See jQeury.html for example)
+
+jQuery provides lot's of event methods. related, but not limited to, browser, form
+keyboard, and mouse events.
+
+Broswer events:
+  - .resize()     - .scroll()
+  
+Document Loading  
+  - .ready()
+
+Event Handler Attachment
+  - .off()             - .on()        - .one()
+  - jQuery.proxy()     - .trigger()   - .triggerHandler()
+  - .unbind()          - .undelegate()
+
+Event Object
+  - eventt.currentTarget      - event.preventDefault()
+  - event.stopPropogation()   - event.target
+  - event.type
+
+Form Events
+  - .blur()       - .change()        - .focus()
+  - .select()     - .submit()
+
+Keyboard Events
+  - .focusin()    - .focusout()      - .keydown()
+  - .keypress()   - .keyup()
+
+Mouse Events
+  - .click()        - .dblclick()      - .focusin()
+  - .focusout()     - .hover()         - .mousedown()
+  - .mouseenter()   - .mouseleave()    - .mousemove()
+  - .mouseout()     - .mouseover()     - .mouseup()
+
+
+-> Effects
+
+Allow methods for showing and hiding content, fading in or out, or sliding
+content up or down.
+
+Each effect has it's own syntax. Most commonly though, each accepts a duration,
+easing, and ability to specify a callback function.
+
+jQuery animations, provide a good fallback for cases where CSS animations aren't 
+supported by the browser. CSS animations are preferred where they are supported.
+
+Effect Easing:
+  Sets the time it takes or the speed at which an animation will progress. Their
+  are two keywords set for easing, swing and linear. 
+
+  E.g.
+
+  $('.error').show('show', 'linear');
+  $('.error').show(500, 'swing');
+
+jQuery UI is a library that extends the functionality of jQuery and offers additional
+interactions, effects and widgets.
+
+Effect Callback:
+  After an animation is completed it is possible to run another function by placing 
+  a callback after the two prior arguments.
+
+  e.g.
+
+  $('.error').show('slow', 'linear', function(event) {
+    $('.error .status').text('Continue');
+  });
+
+Basic Effects:
+  - .hide()     - .show()         - .toggle()
+
+Custom Effects
+  - .animate()      - .clearQueue()     - .delay()
+  - .dequeue()      - .jQuery.fx.interval   - jQuery.fx.off
+  - .queue()        - .stop()
+
+Fading Effects
+  - .fadeIn()       - .fadeOut()        - fadeTo()
+  - .fadeToggle()
+
+Sliding Effects
+  - .slideDown()    - .slideToggle()    - .slideUp()
+
+
+/# LESSON 7 - Transforms #/
+
+## CSS
+    Transform Syntax
+    2D Transforms
+    Transform Origin
+    Perspective
+    3D Transforms
+    Transform Style
+    Backface Visibility
+
+Transforms, which shipped with CSS3 allow us alternative ways to size, position,
+and change elements. All of these new techniques are made possible by the transform
+property.
+
+Transforms come in 2D and 3D, each of which comes with there own properties and 
+values.
+
+For best support it's still advised to use vendor-prefixes.
+
+-> Transform Syntax
+
+Actual transorm syntax is quite simple including the transform property followed by
+a value. The value specifies the transform type, followed by a value of a specified 
+amount in brackets. 
+
+e.g. 
+div {
+  -webkit-transform: scale(1.5);
+     -moz-transform: scale(1.5);
+       -o-transform: scale(1.5);
+          transform: scale(1.5);
+}
+
+-> 2D Transforms
+
+Elements may be distorted, or transformed, on both a 2D plane or a 3D plane.
+2D is transformed along the X and Y axes.
+
+  2D Rotate:
+    This allows the ability to rotate an object from 0 to 360 degrees. A positive 
+    value will rotate an element clockwise. Negative, anti-clockwise. default
+    point of rotation is the center of the element, 50% 50%, both horizontally and 
+    vertically.
+
+    e.g.
+
+    HTML
+      <figure class="box-1">Box 1</figure>
+
+    CSS
+      .box-1 {
+        transform: rotate(20deg);
+      }
+
+  2D Scale:
+
+  Using the scale value within the transform property allows you to 
+  change the appeared size of an element. default scale is 1.
+
+  e.g.
+
+    .box-1 {
+      transform: scale(0.5);
+    }
+
+  You can also scale a box along only one dimension. scaleX scales
+  along the x axis and scaleY scales in the Y axis. equally, you can provide
+  two arguments to scale and then scale x and y at the same time.
+
+  e.g.
+
+    .box-1 {
+      transform: scale(0.5,1.25);
+    }
+
+  2D Translate:
+    The translate value works a bit like that of relative positioning, pushing
+    and pulling an element in a different direction without interupting the
+    flow of a page. 
+
+    translateX will change the position on the x axis.
+    translateY will change the position on the y axis.
+
+  .box-1 {
+    transform: translateX(-10px);
+  }
+  .box-1 {
+    transform: translate(10px, 10px);
+  }
+
+  2D Skew:
+    skew can distort elements along a certain axis or both at the 
+    same time.
+
+  e.g. 
+
+  .box-1 {
+    transform: skewX(5deg);
+  }
+  .box-2 {
+    transform: skew(5deg, -20deg);
+  }
+
+  Multiple tranformations can be made simultaneously if you list
+  the correct formulas one after the other in the dame declaration, without
+  commas.
+
+  e.g. 
+
+  div {
+    transform: skewX(10deg) translateY(10px)
+  }
+
+Behind every transform their is also a matrix defining the behaviour of the
+transform. Using the rotate, scale, transition and skew values provide an
+easy way to establish this matrix. however, the mathematically inclined
+may prefer a deeper dive into transforms.
+
+-> Transform Origin
+
+As previously mentioned, the default transform is the dead center of an element
+both 50% horizontally and vertically. The property accepts one or two values.
+When two are used, the first means top left, and the second bottom right. If
+one argument is provided then both of these value types are given this one 
+value.
+
+-> Perspective
+
+In order for 3D transforms to work the elements need a 3D Perspective
+from which to transform. similar to a vanishing point. 
+
+You cna either set the persepective property on the parent element or on 
+the transform property of each individual element. When you want to transform
+a group of element you should se a single parent element.
+
+/# LESSON 8 - Transitions & Animations #/
+
+## CSS
+    Transitions
+    Shorthand Transitions
+    Animations
+    Customizing Animations
+    Shorthand Animations
+
+CSS3 Transitions allow you to alter the appearance and behaviour of an 
+element whwnever a state change occurs, such as when it is hovered over,
+focused on, active, or targeted. Transitions provide a change from
+one state to another, while anaimations can set multiple points of transition
+upon different keyframes.
+
+-> Transitions
+
+For the best support across all browsers one should always use vendor-prefixes.
+
+For a transition to take place an element must have a change in state, and a different
+style must be identified for each state.
+
+There are four transition properties in total:
+  - transition-property
+  - transition-duration
+  - transition-timing-function
+  - transition-delay
+
+-> Transitional Property
+
+Determines exactly which properties will be transitioned in conjunction with the other
+transitional properties. 
+
+By default all styles will change upon a change in state, but only those identified in 
+transitional properties will be transitioned. 
+
+Where multiple properties need to be transitioned they can be included in a comma separated
+list.
+
+YOu can also use the keyword 'all' to transition all properties that will change.
+
+Not all properties can be transitioned, only those where there are identifiable points
+between the changing values of the property.
+
+Popular transitional properties include the following:
+  - background-color 
+  - background-position 
+  - border-color
+  - border-width 
+  - border-spacing 
+  - bottom 
+  - clip 
+  - color 
+  - crop 
+  - font-size 
+  - font-weight 
+  - height 
+  - left 
+  - letter-spacing 
+  - line-height 
+  - margin 
+  - max-height 
+  - max-width 
+  - min-height 
+  - min-width 
+  - opacity 
+  - outline-color 
+  - outline-offset 
+  - outline-width 
+  - padding 
+  - right 
+  - text-indent 
+  - text-shadow 
+  - top 
+  - vertical-align 
+  - visibility 
+  - width 
+  - word-spacing 
+  - z-index
+
+-> Transition Duration
+
+The duration in which a transition takes place is set using the transition-duration property.
+
+Can use seconds and miliseconds (s ms), and can use fractional amounts.
+
+You can set multiple durations, one for each property.
+
+-> Transition timing
+
+The transition-timing-function property is to set the speed in which a transition will
+move. popular values include:
+  - linear
+  - ease-in
+  - ease-out
+  - ease-in-out
+
+Each timing function has a cubic-bezier curve behind it which can be set specifically with 
+cubic-bezier(x1, y1, x2, y2) values. Additional values include, step-start, step-stop and 
+steps(number_of_steps, direction)
+
+-> transition-delay
+
+Allows one to set a time that the transition will be delayed by.
+
+-> Shorthand Transitions
+
+You can set transitions using shorthand syntax in the following order:
+
+transition: transition-property  transition-duration transition-timing-function transition-delay
+  
+if you use multiple values, comma separate each group of values.
+
+As with timings, you can set multiple timing functions using comma separated values. 
+
+
+# Animations
+
+Animations add additional control when it is required. Where a transition 
+needs multiple states then animations are the answer.
+
+The @keyframes rule includes the animation name, any animation breakpoints,
+and the properties intended to be animated.
+
+e.g. 
+
+@keyframes slide {
+  0% {
+    left: 0;
+    top: 0;
+  }
+  50% {
+    left: 244px;
+    top: 100px;
+  }
+  100% {
+    left: 488px;
+    top: 0;
+  }
+}
+
+vendor prefixes for keyframes require an @ symbol prior to the prefix.
+
+As with transitions, only individual properties can be animated. e.g. you 
+can't go from top to bottom, you need to animate top to top.
+
+-> Animation name
+
+Once a keyframe has been declared they need to be asigned to an element.
+To do so, the animation-name property is used with the animation name. You
+also need to add an animation-duration so that the keyframes know how long
+the animation needs to last.
+
+Animations also use an animation-timing-function and can accept the 
+animation-delay.
+
+-> Animation interations
+
+You can also customise how many times an animation will run with the 
+'animation-iteration-count'
+
+-> Animation Direction
+
+You can also declare the direction which an animation will occur.
+  - normal, reverse, alternate, alternate-reverse
+
+-> the 'animation-play-state' property allows an animation to be played
+  or paused using the running and paused keyword values respectively.
+
+  When running an animation is unpaused, it continues from the position 
+  where it was paused.
+
+'animation-fill' defines that styles that will be applied to an element
+  before during and after an animation has run.
+
+
+
+
+/# LESSON 9 - Feature Support & Polyfills #/
+
+## HTML
+    HTML5 Shiv
+    Cross Browser Testing
+
+## CSS
+    Detecting Browser
+    Features
+
+## JS
+    Conditionally Loading Files
+
+
+The coverage of broswer support for a website depends on business
+requirements or needs. 
+
+When incorporating CSS3 Properties it's recommended to incorporate fallbacks 
+to support older browsers. Other techniques include poplyfills and shivs.
+
+# HTML5 Shiv
+
+HTML5 Shiv is created by Remy Sharp and allows the use of HTML5 elements in
+IE8 and below not only supports HTML5 but also styling.
+
+The shiv should be placed in the head of the document and should only be loaded
+if required by being placed ina  conditional comment.
+
+e.g.
+
+<!--[if lt IE 9]-->
+  <script src="html5shiv.js"></script>
+<!--[endif]-->
+
+Additionally, once the new HTML5 elements are created using the shiv,
+any block level elements need to be identified and updated using the 
+'display: block;' declaration.
+
+e.g.
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+summary {
+  display: block;
+}
+
+also, 
+
+audio,
+canvas,
+video {
+  display: inline-block;
+}
+
+# Detecting Browser Features
+
+Modernizr is a library which enables feature detection, which allows you to
+write conditional css and js.
+
+Modernizr can be used to import the html5shiv. modernizr adds attribubtes
+to elements to allow yiou to determine which features are present.
+
+One should determine which features are need to be detected, as some
+styles etc could be written differently to achieve the same goals.
+
+To determine what something will look like when CSS3 is not available,
+one can use deCSS3 which disables CSS3 features. 
+
+haz.io tells you what each browser supports.
+
+# Conditionally Loading Files
+
+Modernizr allows a way to use feature detection in JS, with which JS can
+polyfills and conditional files can be loaded with the help of jQuery's 
+getScript method.
+
+e.g. 
+
+$(document).ready(function() {
+  if (Modernizr.localstorage) {
+    // Local Storage is available
+    jQuery.getScript('storage.js');
+  } else {
+    // local storage not available.
+    jQuery.getScript('storage-polyfill.js');
+  }
+});
+
+
+-> Conditionally Loadig Based on MEdia Queries.
+
+By testing media queries with Modernizr, one can load relevant js files
+only when required.
+
+e.g.
+
+$(document).ready(function() {
+  if (Modernizr.mq('screen and (max-width: 400px)')) {
+    $('.size').text('small');
+  }
+});
+
+
+# Cross Browser Testing, 
+
+Is hard... but I should do it!
+
+/# LESSON 10 - Extending Semantics & Accessibility #/
+
+## HTML
+    Semantic Motivation
+    Structural Semantics
+    Text Level Semantics
+    Microdata
+    WAI-ARIA
+
+
+One should always seek to maximise use of elements with semantic meaning
+rather than a div for example. One should seek to use semantic elements
+and attributes, as well as microdata and WAI-ARIA to extend the value of 
+your code.
+
+# Semantic Motivation
+
+Semantics provide benefit for everyone.
+
+Semantics provide:
+   - Unambiguos, shared meaning withing content
+   - Accessibility
+   - Search and Globalization
+   - Interoperability
+
+
+# Structural Semantics
+
+Structural semantics gives more meanning to the structure of our page.
+
+Using Header, Footer, Aside and article, nav etc, the higher-level
+structure of the page is given more meaning, and gives a user, whether, 
+human or computer, a better idea of what each section contains.
+
+-> Hiding Content
+
+When hiding content on a page one should use the boolean hidden attribute.
+This ensures that screen readers etc will ignore the content, whereas css styled
+content with the css property display: none, might not be affected.
+
+-> Text Level Semantics.
+
+<strong> indicates that text has strong importance rather than being simply
+  stylistically offset (with no real importance) as would be with a <b> element
+
+<em> places stressed emphasis on text whereas <i> adds alternative voice or 
+  tone.
+
+-> Underlining Text
+
+<ins> can be be used to identify text that has been recently added to
+  a document. For more sematic code ins should be used with cite and datetime
+  attributes.
+
+<u> simply referes to unarticulated annotation. A u is typically used to label
+  text as a proper name, often in another language, or to point out a 
+  misspelling.
+
+One should be careful underlining text as people might think it's a hyperlink.
+
+-> Striking Text
+
+<del> is used to identify text that has been removed or deleted from a 
+  document. It can also be used iwht cite and datetime attributes.
+
+<s> can strike through text but offers no semantic value.
+
+<mark> an be used to highlight text.
+
+<abbr> Allow you to create abbreviations with the actual words contained in as
+   the title in the attirbute.
+
+<sub> is for subscript
+
+<sup> is for superscript.
+
+<meter> can be used to show a measurement.
+
+<progress> is similar except it should be used for a changing number. i.e. 
+  progress bar.
+
+<time> may be used with or without the datetime attribute depending on 
+  how the content is formatted. If the time corresponds to a publication time
+
+<address> should be used to contain any address information.
+
+<pre> and <code> should be used to represent code sample.
+  pre should be used for larger blocks of sample code.
+
+<br> can be used to break a line of text.
+
+<wbr> can be used to allow words that have no space, to break in a suitable
+  place when required.
+
+<small> tends to be used for copyright or legal print.
+
+<cite> title of work
+
+<q> dialog or prose
+
+<blockquote> longer quote.
+
+<a> hyperlinks have anumber of useful attributes. Such as download attribute.
+  The download attribute allows an <a> to be used to download a resource. If used
+  as a boolean attribute the file will have the same name as that on the server,
+  else, with a value provided, this value will be used for the file name.
+
+  the rel attribute identifies the relationship of the link to the page.
+
+  Popular rel attributes include:
+    - copyright       - contents
+    - alternate       - author
+    - bookmark        - help
+    - license         - next
+    - nofollow        - noreferrer
+    - prefetch        - prev
+    - search          - tag
+
+-> Microdata
+
+Microdata is HTML extended with nested groups of name value pairs that allow machines,
+including browsers and search engines, to pick up additional semantics and information 
+for rich content. More popular uses of microdata reside in encoding contact information,
+calendar events. There are also encoding models for products reviews, and more.
+
+Google makes use of microdata. One should always seek to use an existing standard
+where possible.
+
+-> Outlining Microdata
+
+Is identified using three main attributes.
+    - itemscope
+    - itemtype
+and - itemprop
+
+The 'itemscope' attribute declares the scope of each piece of microdata. This 
+  attribute should be on the parent element of the containing information.
+
+The 'itemtype' defines what microdata vocabulary should be used.
+  Most popular itemtypes have been defined at 'schema.org'.
+
+Once scope and type have been set then itemprops may be set. the itemprop defines 
+  a key while content of the element will tend to define the value.
+  Sometimes the content isn't the value, but the value comes from another attribute
+  on the same element.
+    e.g.
+    <meta> = content attribute
+    <audio> <embed> <iframe> <img> <source> <video> = src attribute
+    <a> <area> <link> = href attribute
+    <object> = 'data' attribute
+    <time> = 'datetime' attribute
+
+Person Microdata => http://schmea.org/Person
+
+Address Microdata => https://schema.org/PostalAddress
+
+Organization => https://schema.org/Organization
+
+Event => https://schema.org/Event
+
+
+-> Wai Aria
+
+(Web Accessibility Initiative - Accessible Rich Internet Applications)
+
+Helps make websites more accessible for those with disabilities. WAI-ARIA
+helps define roles, stats, and additional properties for assistive tech.
+
+  Roles: 'role'
+    This attribute tells us what to do with the role attribute.
+
+    Their are four different categories of roles:
+      - abstract
+      - widget
+      - document structure - organisational structure of page.
+      - landmark - regions of page
+
+    Document Structure Roles:
+      - article
+      - directory
+      - heading
+      - listitem
+      - presentation
+      - rowheader
+      - columnheader
+      - document
+      - img
+      - math
+      - region
+      - separator
+      - definition
+      - group
+      - list
+      - note
+      - row
+      - toolbar
+
+    Landmark Roles
+      - application
+      - contentinfo
+      - navigation
+      - banner
+      - form
+      - search
+      - complementary
+      - main
+
+

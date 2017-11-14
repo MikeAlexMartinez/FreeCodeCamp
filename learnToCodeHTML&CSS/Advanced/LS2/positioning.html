@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Advanced - My HTML and CSS Code Examples</title>
+        <style>
+          body {
+            font: 600 14px/24px "Open Sans", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", Sans-Serif;
+            color: #fff;
+          }
+          div {
+            margin: 10px 10px;
+          }
+          .box-set,
+          .box {
+            border-radius: 6px;
+          }
+          .box-set {
+            background: #eaeaed;
+          }
+          .abs-hw,
+          .abs-nohw,
+          .box {
+            background: #2db34a;
+            text-align: center;
+          }  
+          .box { 
+            float: left;
+            padding: 20px 0;
+            margin: 1.858736059%;
+            width: 29.615861214%;
+          }
+          .over {
+            overflow: auto;
+          }
+
+          /* clear fix */
+          .cf:before,
+          .cf:after {
+            content: "";
+            display: table;
+          }
+          .cf:after {
+            clear: both;
+          }
+          .cf {
+            *zoom: 1;
+          }
+          .abs-hw {
+            height: 100px;
+            width: 120px;
+            position: absolute;
+            top: 50px;
+            right: 150px;
+          }
+          .abs-nohw {
+            position: absolute;
+            top: 10px;
+            bottom: 10p;
+            left: 5px;
+            right: 200px;
+          }
+          .rel {
+            position: relative;
+          }
+          footer {
+            background: #2db34a;
+            bottom: 0;
+            left: 0;
+            position: fixed;
+            right: 0;
+          }
+        </style>
+    </head>
+    <body>
+      <div class="box-set">
+        <figure class="box">Box 1</figure>
+        <figure class="box">Box 2</figure>
+        <figure class="box">Box 3</figure>
+        <div style="clear: both;"></div>
+      </div>
+      <div class="box-set over">
+        <figure class="box">Box 1</figure>
+        <figure class="box">Box 2</figure>
+        <figure class="box">Box 3</figure>
+      </div>
+      <div class="box-set cf">
+        <figure class="box">Box 1</figure>
+        <figure class="box">Box 2</figure>
+        <figure class="box">Box 3</figure>
+      </div>
+      <div class="box-set rel">
+        <figure class="abs-hw">absolute h&w</figure>
+        <figure class="abs-nohw">absolute No h&w</figure>
+      </div>
+      <footer>Fixed Footer</footer>
+    </body>
+</html>

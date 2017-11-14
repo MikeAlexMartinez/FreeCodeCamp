@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lists - My HTML and CSS Code Examples</title>
+        <style>
+          div {
+            border: 1px solid black;
+            margin-bottom: 30px;
+          }
+          ul {
+            list-style: disc;
+            padding-left: 40px;
+          }
+          ul li {
+            list-style-type: square;
+          }
+          .unordered li {
+            background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/29841/arrow.png") 0 50% no-repeat;
+            background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/29841/arrow.svg") 0 50% no-repeat;
+            list-style-type: none;
+            padding-left: 12px;
+          }
+          .hoz-list li {
+            display: inline-block;
+            margin: 0 10px;
+          }
+          .float-hoz li {
+            float: left;
+            margin: 0 20px;
+          }
+          .float-hoz-container {
+            display: inline-block;
+          }
+          /* Naviagation example */
+          .navigation ul {
+            font: bold 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-transform: uppercase;
+          }
+          .navigation li {
+            display: inline-block;
+          }
+          .navigation a {
+            background: #395870;
+            background: linear-gradient(#49708f, #293f50);
+            border-right: 1px solid rgba(0, 0, 0, .3);
+            color: #fff;
+            padding: 12px 20px;
+            text-decoration: none;
+          }
+        </style>
+    </head>
+    <body>
+        <div class="unordered">
+          <ul>
+            <li>Orange</li>
+            <li>Blue</li>
+            <li>Green</li>
+          </ul>
+        </div>
+
+        <div>
+          <ol>
+            <li>Turn left on abeville</li>
+            <li>turn right on trouville</li>
+            <li>go to petcoons</li>
+          </ol>
+        </div>
+        <div>
+          <dl>
+            <dt>study</dt>
+            <dd>The devotion of time and attention to acquiring knowledge on an academic subject, especially by means of books</dd>
+            <dt>design</dt>
+            <dd>A plan or drawing produced to show the look and function or workings of a building, garment, or other object before it is built or made</dd>
+            <dd>Purpose, planning, or intention that exists or is thought to exist behind an action, fact, or material object</dd>
+            <dt>business</dt>
+            <dt>work</dt>
+            <dd>A person's regular occupation, profession, or trade</dd>
+          </dl>
+        </div>
+        <div>
+          <ol>
+            <li>Walk the dog</li>
+            <li>Fold laundry</li>
+            <li>
+              Go to the grocery store and buy:
+              <ul>
+                <li>Milk</li>
+                <li>Bread</li>
+                <li>Cheese</li>
+              </ul>
+            </li>
+            <li>Mow the lawn</li>
+            <li>Make dinner</li>
+          </ol>
+        </div>
+        <div class="hoz-list">
+          <ul>
+            <li>Orange</li>
+            <li>Blue</li>
+            <li>Green</li>
+          </ul>
+        </div>
+        <div class="float-hoz">
+          <div class="float-hoz-container">
+            <ul>
+              <li>Orange</li>
+              <li>Blue</li>
+              <li>Green</li>
+            </ul>
+          </div>
+        </div>
+        <nav class="navigation">
+          <ul>
+            <li><a href="#">Profile</a></li><!--
+            --><li><a href="#">Settings</a></li><!--
+            --><li><a href="#">Notifications</a></li><!--
+            --><li><a href="#">Logout</a></li>
+          </ul>
+        </nav>
+    </body>
+</html>

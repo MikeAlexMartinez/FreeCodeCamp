@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My HTML and CSS Code Examples</title>
+        <style>
+          .notice-success {
+            background: #67b11c url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/29841/tick_2.png") 20px 50% no-repeat;
+            border: 2px solid #467813;
+            border-radius: 5px;
+            color: #fff;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            padding: 15px 20px 15px 50px;
+          }
+          .layered-notice {
+            background: #67b11c;
+            background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/29841/tick_2.png") 20px 50% no-repeat, linear-gradient(#72c41f, #5c9e19);
+            background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/29841/tick_1.svg") 20px 50% no-repeat, linear-gradient(#72c41f, #5c9e19);
+            border: 2px solid #467813;
+            border-radius: 5px;
+            color: #fff;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            padding: 15px 20px 15px 50px;
+          }
+          .grad {
+            margin-top: 30px;
+            height: 100px;
+          }
+          .gradient {
+            background: #466368;
+            background: -webkit-linear-gradient(#648880, #293f50);
+            background:    -moz-linear-gradient(#648880, #293f50);
+            background:        -linear-gradient(#648880, #293f50);
+          }
+          .radial-gradient {
+            background: #466368;
+            background: -webkit-radial-gradient(#648880, greenyellow);
+            background:    -moz-radial-gradient(#648880, greenyellow);
+            background:        -radial-gradient(#648880, greenyellow);
+          }
+          .step-gradient {
+            background: #648880;
+            background: linear-gradient(to right, #f6f1d3, #648880 10%, #293f50);
+          }
+        </style>
+    </head>
+    <body>
+      <div class="notice-success">
+        Woo hoo! Congratulations, you did it!
+      </div>
+      <div class="grad gradient">
+      </div>
+      <div class="grad radial-gradient">
+      </div>
+      <div class="grad step-gradient">
+      </div>
+      <div class="layered-notice">
+        Woo hoo! Congratulations, you did it again!
+      </div>
+    </body>
+</html>

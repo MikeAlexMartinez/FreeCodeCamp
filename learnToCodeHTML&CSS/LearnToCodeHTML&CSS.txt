@@ -1,0 +1,1420 @@
+############################
+# LEARN TO CODE HTML & CSS #
+############################
+
+Lessons: 
+1 - Building your first web page
+2 - Getting to Know HTML
+3 - Getting to know CSS
+4 - Opening the Box model
+5 - Positioning Content
+6 - Working with Typography
+7 - Setting Backgrounds & Gradients
+8 - Creating Lists
+9 - Adding Media
+10 - Building Forms
+11 - Organising Data with Tables
+12 - Writing your best code
+Advanced:
+1 - Performance & Organisation
+2 - Detailed Positioning
+3 - Complex Selectors
+4 - Responsive Web Design
+5 - Preprocessors
+6 - jQuery
+7 - Transforms
+8 - Transitions & Animations
+9 - Feature Support & Polyfills
+10 - Extending Semantics & Accessibility
+
+/# LESSON 1 - Building Your first web page #/
+
+## HTML
+    Common HTML Terms
+    Document Structure
+    Referencing CSS
+
+## CSS
+  Common CSS Terms
+  Working with Selectors
+  Using CSS Resets
+ 
+# HTML - Common HTML Terms
+
+HTML - HyperTextMarkupLanguage
+
+Elements - These are the building blocks of the page. Define the content and structure of the page.
+
+Tags - Surround the element. Consist of opening and closing tags.
+
+Attributes - these provide additional information about the element. They are found within
+  the opening tag and are in the form key=value.
+
+# Document Structure
+
+All html pages have a required structure that includes the following elements:
+<!DOCTYPE html> 
+<html></html>
+<head></head>
+<body></body>
+
+<head> identifies the top of the document and contains meta data about the page
+  links to other resources and other items such as the title.
+
+<body> contains all the visible elements of the page.
+
+A typical page might look like so:
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Hello World</title>
+  </head>
+  <body>
+    <h1>Hello World</h1>
+    <p>This is a webpage.</p>
+  </body>
+</html>
+
+elements contained within other elements are known as nested elements.
+
+Self-closing tags are those that simply contain attributes.
+
+Examples of self-closing elements are:
+<br>
+<img>
+<meta>
+<wbr>
+<embed>
+<input>
+<param>
+<hr>
+<link>
+<source>
+
+# Understanding Common CSS Terms
+
+Selectors - A selector designates which elements should be styled by the
+  contained css.
+    Selectors generally use the id or class attributes to select specific 
+  elements.
+
+Properties - Determine the styles that will be applied to the elements.
+
+# Working with Selectors
+
+Type-Selectors - Select an element by naming the type that it applies to
+  e.g. div {...}
+
+Class-Selectors - allow us to select an element based on the class attribute.
+
+  e.g. <div class="style-me"></div>
+       .style-me {...}
+
+ID Selectors - Id attributes can only be used once per page. They work similarly
+  to class selectors except you prefix the name with a # symbol
+
+
+# Referencing CSS
+
+Best practicce is to include all styles in a single external stylesheet which we
+reference in the head of the html document.
+
+When linking to the html the relattribute should equal "stylesheet".
+
+# Using CSS Resets
+
+Browsers impose default setting for css. Therefore if you want a truly clean slate 
+from which to begin your CSS you need to utilise a CSS reset.
+
+Most popular are: Eric Meyer's reset (http://meyerweb.com/eric/tools/css/reset/)
+  and: Normalize.css (http://necolas.github.io/normalize.css/)
+
+/# LESSON 2 - Getting to know HTML #/
+
+## HTML
+    Semantics Overview
+    Divisions & Spans
+    Text-Based Elements
+    Building Structure
+    Creating Hyperlinks
+
+
+# Semantics Overview
+
+  This is the practice of giving a page meaning and structure by using the proper
+elements for different parts of your page, regardless of style of appearance.
+
+# Identifying Division & Spans
+
+Divisions <div> and Spans <span> only act as containers for styling purposes.
+Paragraphs <p> contain tesxt content.
+
+- Block Vs. Inline Elements
+
+  A block-level element begins on a new line, and are stacked on top of eachother, and occupy
+  any available width
+
+  An Inline element does not begin on a new line but fall into the normal flow of a document.
+  Inline elements cannot wrap block level elements. 
+
+<div>'s are block level elements that are used to define larger groupings of objects, while 
+<span>'s are inline elements for detailing smaller items.
+
+When applying classes and pr id's to elements the name should be representative of the elements
+functional purpose rather than the style itself, as a style is more likely to be changed.
+
+Html Comments: <!-- -->
+
+CSS Comments: /* */
+
+# Using Text-based Elements
+
+Headings <h1> : Are block level elements and come in six different rankings, h1 thru h6
+  Should be used semantically and not used to define styling.
+
+Paragraph <p> : Paragraphs are block level elements that typically follow a heading.
+
+Bold Text <strong> or <b> : Gives 'strong importance' to the text or makes it 'bold'.
+  Semantically, strong is usually the better choice of the two.
+
+Italicize Text <em> or <i> : Italicizes text. <em> being preferred for the semantic emphasis.
+
+# Building Structure
+
+  Divs don't provide enough semantic value so in HTML5 a number of new structurally based style
+elements were created. These include:
+
+  <header></header> : Identify to of page. normally with Heading, Intro, and nav.
+  <nav></nav> : Used for major navigational links of a website. Misc. links should be wrapped 
+                in an <a>
+  <article></article> : Identifies a section of independent, self-contained content that may 
+                be independently distributed or released. (Could content be put elsewhere without 
+                context of page, and would it make sense?)
+  <section></section> : Identifies a thematic grouping of content.
+  <aside></aside> : Holds content such as sidebars, inserts or brief explanations. This is still
+                a block-level element and therefore must be properly grouped.
+  <footer></footer> : Identifies closing or end of page.
+
+Special Characters in text are often encoded using &...; encoding. A list of such encodings
+can be found here: (http://copypastecharacter.com/)
+
+# Creating Hyperlinks
+
+Hyperlinks are established using an anchor <a> tag. which is an inline element.
+
+In HTML5 it is now possible to wrap block level elements with anchor tags.
+
+Links to external websites require absolute paths. links internally require relative paths.
+
+starting a 'href' with mailto: wil about up an e-mail link with the to field auto-filled.
+We are able to add subject and body fields by using a ? and %20 in spaces. Ampersands & 
+seperate the two from one another.
+
+It is possible to open a link in a new window by using the 'target' attribute with a value 
+of _blank.
+
+By utilising 'id' attributes we can also use the 'href' to link to items on the same page.
+
+
+/# LESSON 3 - Getting to Know CSS #/
+
+## CSS
+    The Cascade
+    Calculating Specificity
+    Combining Selectors
+    Layering Styles with Multiple Classes
+    Common Property Values
+
+# The Cascade
+
+The last style to be defined (if it applies to an element already defined) will be the css 
+style.
+
+# Calculating Specificity
+
+Every selector has a specifity weight and this, combined with the cascade will define 
+how each element will be styled.
+
+Type selectors have the lowest specificity weight. 0-0-1
+
+Class selectors have the middle specificity weight. 0-1-0
+
+ID selectors have the highest specificity wirght. 1-0-0
+
+Specificity is defined using these scores, in three columns.
+
+# Combining Selectors.
+
+Combining selectors allows is to be more selective with what we combine.
+
+The selector furthest to the right is known as the key selector.
+
+Spaces within selectors can make a large difference. Without a space something such as
+'p.mustard' would only select p elements with a class of mustard. It is best practice not 
+to prefix class selectors.
+
+- Specificity within combined selectors. 
+
+  specificity weights are calculated by adding up all the selectors. 
+
+  e.g '.hotdog p.mustard' has a weight of 0-2-1
+
+# Layering Styles with Multiple Classes
+
+One way to keep specifity low is to layer styles on to elements with the use of multiple classes.
+
+e.g:
+
+  <a class="btn btn-danger">...</a>
+  <a class="btn btn-success">...</a>
+
+  .btn {
+    font-size: 16px;
+  }
+  .btn-danger {
+    background: red;
+  }
+  .btn-success {
+    background: green;
+  }
+
+# Common CSS Property Values
+
+Colors use RGB. Some can use a keyword. Or Hexadecimal.
+
+You can also use rgba() which allows for the definition of an alpha colour which must
+be a number between 0 and 1.
+
+You can also define colours using HSL (hue, saturation, light) or HSLa.
+
+Lengths
+
+Absolute - lengths use pixels. There are approximately 96 pixels in an inch.
+
+Relative - lengths use percentages and thes percentages rely on their relation to the size
+of another predefined element.
+
+Em - is represented by sum notation. and is calculated in relation to the font-size of an 
+element. e.g. font-size of 14px and 5em = 70px.
+
+/# Lesson 4 - Opening the Box Model #/
+
+## HTML
+    How are elements displayed?
+    What is the Box Model?
+    Working with the box model
+    Width and Height
+    Margin & Padding
+    Borders
+    Border Radius
+    Box-sizing
+    Vendor prefixes
+    The universal selector *
+
+## CSS
+    Displaying Elements
+    The Box Model
+
+# How are elements displayed?
+
+How elements are displayed is determined by the display property. Every
+element has a default but this can be changed.
+
+Most common 'display' values are:
+
+block, inline, inline-block, none
+
+inline-block keeps all properties of a regular block element except that
+it won' begin on a new line.
+
+There is usually a space between inline-block elements but this can be
+amended.
+
+Using 'display: none;' will render the element as if it doesn't exist.
+Any elements within this element will also be hidden.
+
+# What is the Box Model?
+
+Every element on the page is a rectangular box and may have the following 
+properties:
+
+  width, height, padding, borders, margins
+
+# Working with the box model
+
+Core of box is defined by the width and height of the element. Padding and 
+then border expand the core size of the box outward. Lastly any margin wll 
+follow the border. 
+
+Therefore, width = 
+margin-right + border-right + padding-right + width + padding-left + border-left + margin-left
+
+equally, height =  
+margin-top + border-top + padding-top + height + padding-bottom + border-bottom + margin-bottom
+
+# Width and Height
+
+Every element rendered by the dom is done so with a size. If an element
+is key to the page it will likely require a default width and height.
+
+Block level elements have a default width of 100%. 
+
+inline and inline-block elements expand and contract to accomodate their
+content.
+
+Default height of any element is defined by it's content.
+
+inline elements will NOT accept width and height properties.
+
+# Margin & Padding
+
+Margin sets space that surrounds an element. MArgins fall outside of
+the border and are completely transparent.
+
+inline elements don't accept the vertical margin properties, but They
+are accepted by inline-block and block level elements.
+
+Paddig provides space directly within the element. Padding on inline elements
+may bleed into the lines above and below an element.
+
+Margin and padding accept longhand and shorthand declarations.
+
+These are all shorthand:
+  1 value defines all sides.
+
+  e.g. margin: 10px;
+
+  2 values defines top and bottom as the first, and left and right as the 
+  second.
+
+  e.g. margin: 10px 20px;
+
+  4 values defines top, right, bottom, then left.
+
+  e.g. margin: 10px 20px 0 5px;
+
+Longhand involves defining each side specifically.
+
+  e.g. margin-left: 15px;
+
+Margin and padding are both completely transparent.
+
+# Borders
+
+Borders also accept shorthand
+
+  e.g. border: 6px solid black;
+
+Borders accept longhand also
+
+  e.g. border-bottom: 12px;
+
+# Border Radius 
+
+Border radius allows us to round the edges of boxes.
+
+border radius accepts shorthand and longhand variants. 
+
+4 values starts with 'top-left' and finished with 'bottom-left'.
+
+2 values completes opposite corners with the same values, also starting 
+with the 'top-left' value.
+
+# Box-sizing
+
+In CSS3, box-sizing allows you to change exactly how the box-model works.
+
+The propery accepts three values:
+
+  content-box, padding-box, border-box
+
+  content-box is the default value and will leave div's working with the
+  the additive model.
+
+# Vendor prefixes
+
+Are to allow different browsers who may have implemented features differently
+and at different times, to parse your code appropriately. 
+
+Most common prefixes are:
+  -moz-     Mozilla
+  -ms-      Microsoft
+  -webkit-  Apple and Google Chrome
+
+padding-box changes it the additive model so that if you set a width of an element,
+any change of padding doesn't increase or decrease the width, but will alter the size
+of the content contained inside. any border will still increase the dimensions of the
+element.
+
+  ~# WARNING: padding-box has been deprecated and should not be used #~
+
+border-box alters elements so that like the dimensions of an element are fully defined
+by any set amount, and as any border, or padding are added the elements height & width
+won't change.
+
+Being a new release with CSS3, some much older browsers may not support the border-box 
+property, but this shouldn't be an issue.
+
+# The universal selector *
+
+Using the universal selector with the below:
+
+*
+*:before
+*:after { ... }
+
+allows is to select all elements including any dynamically generated psuedoelements.  
+
+/# LESSON 5 - Positioning Content #/
+
+## CSS
+    Positioning with Floats
+    Positioning with Inline-Block
+    Creating Reusable Layouts
+    Uniquely Positioning Elements
+
+# Positioning with Floats
+
+The float property allows us to take an element out of the usual flow of the page and 
+position it to the right or left of it's parent element. 
+
+Float allows a few values, most common being left and right.
+
+When you float an element you take it out of the normal flow of the page. This causes 
+the width of the element to default to the width of the content wihting it. This tends
+not to be desirable and so we can use width and margin to give the element proper width,
+without it encroaching on other elements.
+
+Floating an inline element will cause that element to become a block level element, after 
+which it will accept values for height and width.
+
+Clearing & containing floats - floats where originally to allow the easy flow of text around
+images. Therefore it's common for styles of parent or surrounding elements to bleed into the 
+floated element.
+
+To help get around this you need to use clearing or containing floats.
+
+e.g. 'clear: left;' clears left floats,
+e.g. 'clear: right;' clears right floats,
+e.g. 'clear: both;' clears both floats,
+
+To contain floats you need to wrap your element in a parent element. This technique is
+called a 'clearfix' and will normally have this as the class name or 'cf'
+
+# Positioning with inline-block
+
+inline-block allows us to position block-level elements on the same row as other block 
+level elements.
+
+To remove space between inline-block elements we can use a variety of techniques.
+
+e.g.
+
+writing the elements closing tag and the next elements opening tag on the same line.
+
+Another way: place comments between the closing tag and next opening tag.
+
+# Creating Reusable Layouts
+
+Writing Modular css with grids and layouts are essential for creating flexible reusable
+layouts.
+
+
+# Uniquely Positioning Elements
+
+For situations where we need to position an element more precisely it is 
+sometimes necessary to use the position property with 'box offset' properties.
+
+The position property identifies how an element is positioned on a page and
+whether or not it will appear within the normal flow of a document. box offset properties (top, right, bottom, and left ) identify exactly where an
+an element will be positioned by moving elements in a number of different 
+directions.
+
+the default 'position' value of all elements is 'static' which means it 
+appears in the normal flow of the document.
+
+The other most common attributes are 'relative' and 'absolute'. 
+
+# Relative Position
+
+The element still appears within the normal flow of the page but also allows 
+the display position to be modified with the use of box offset properties.
+
+When positioning the property with box offsets the element will overlap other 
+elements below it rather than moving the element down as margin or padding 
+would.
+
+# Absolute Positioning
+
+The element no longer positions itself within the flow of the page. The 
+element will position itself in relation to it's closest positioned 
+relatively positioned parent, or if none exists, the body of the html 
+document.
+
+/# Lesson 6 - Working With Typography */
+
+## HTML
+  Citations & Quote
+
+## CSS
+  Text Color
+  Font Properties
+  Text Properties
+  Web-safe fonts
+  Embedding Web Fonts
+
+Traditionally we were only able to use fonts that were loaded on to a computer
+already and this limited the amount that we could do. We are now able to 
+add our own custom fonts.
+
+A 'Typeface' is what we see, It is the artistic impression of how text looks,
+feels, and reads.
+
+A 'Font' is a file containing a typeface. Using a font on a computer allows
+us to access a typeface.
+
+# Text Color
+
+The Typeface and Text Color have the largest affect on the legibility of a
+page.
+
+The way to change the color of text is to use the 'color' property.
+
+# Changing Font Properties
+
+There are two different kinds of properties that change the look and feel
+of text on a page.
+
+- Font Properties, changes with 'font-*' properties.
+
+'font-family' defines which fonts to use, providing the target font, as well
+as fallback fonts should your preferred fonts not be available. Font names
+that consist of two or more words should be wrapped in quotation marks.
+
+'font-size' defines the size of the text.
+
+'font-style' can be used to italicize or prevent italicization of text.
+
+'font-variant' can be used to change all font to small capitals.
+
+'font-weight' defines the thickness of the text. The available options range
+  from text such as:
+    normal, bold, bolder, light, lighter and inherit
+  or can be a value ranging from 100 to 900.
+    normal = 400, bold = 700;
+
+  In order to use a specific typeface weight one must first ensure that the
+  typeface has that value available else it will defer to the nearest 
+  available weight.
+
+'line-height' is th distance between two lines of text. best practice suggests
+  that line-height should be 1.5 times the size of the font.
+
+  line-height can also be used to center text vertically, by setting the 
+  height of the containing element to the same as the line-height.
+
+It is possible to combine these properties into a shorthand style by using the
+font property. Every property is optional except the font-size and 
+font-family.
+
+When using shorthand the order  of properties is as follows: 
+  font-style, font-variant, font-weight, font-size, line-height, and 
+  font-family.
+
+# Pseudo-Classes
+
+Pseudo keywords / classes are keywords we can add to selectors, to identify
+what should happen to an element when it's in a unique state.
+
+e.g. :hover
+
+# Applying Text Properties
+
+We are also able to decided how to align, decorate, indent, transform, and
+space text
+
+'text-align' sets all paragraph text to be centred. text-align takes 5
+  properties, left, right, center, justify and inherit. text-align shouldn't
+  be confused with float, and sometimes may not achieve your goal, at which
+  point float may be the property you need to adjust.
+
+'text-decoration' allows you to strike-through, underline or overline text.
+  accepted values are: underline, overline, line-through, and inherit.
+  You can apply multiple decorations to text all at once by comma separating
+  applied values.
+
+'text-indent' can be used to indent the first line of text within an element.
+
+'text-shadow' allows us to add a shadow or multiple shadows to text. Property
+  takees four values, all listed one after the other from left to right.
+  first: horizontal offset
+  second: vertical offset
+  third: shadow blur-radius
+  fourth: shadow color.
+
+'box-shadow' Works like text-shadow except it applies to the whole element.
+  also accepts an optional fourth parameter which defines the spread of the
+  shadow.
+    box-shadow also accepts another value which would be the first value 
+  called inset. which places the shadow inside the element and no outside.
+
+'text-transform' allows us to change the text to a different case.
+  Accepts the following values: none, capitalize, uppercase, lowercase,
+  inherit.
+
+'letter-spacing' adjusts spaces between letters on a page, positive increase
+  the gap, negative decreases, and none removes any custom spacing.
+    If one uses this property you are best off using a relative value, so that
+  spacing is appropriate given the height of the text.
+
+# Web-safe Fonts
+
+The following fonts are those that are considered to be web safe
+
+- Arial
+- Garamond
+- Lucida Sans, Lucida Grande, Lucida
+- Tahoma
+- Trebuchet
+- Courier New, Courier
+- Georgia
+- Palatino Linotype
+- Times New Roman, Times
+- Verdana
+
+# Embedding Web Fonts
+
+We are able to serve our own fonts providing we have the resource available.
+
+first we provide an @font-face rule to define our font. This includes naming
+the font, and then providing the source of the file.
+
+e.g. 
+
+<link href="https://fonts.googleapis.com/css?family=lobster' rel='stylesheet' type="text/css">
+
+loads the lobster family font from google's fonts api.
+
+You must ensure you have permission to use the font that you begin serving on
+your website.
+
+# Including Citations and Quotes
+
+<cite> Used to reference a creative work, author, or resource
+<q> Used for short, inline-quotations
+<blockquote> Used for longer external quotations
+
+Normally a <cite> would include a link to the creative piece of work.
+
+
+/# Lesson 7 - Setting Backgrounds & Gradients */
+
+## CSS
+  Background Color
+  Background Image
+  Gradient Backgrounds
+  Multiple Background Images
+  CSS3 Background Properties
+
+Within CSS, element backgrounds can be a color, an image, a gradient or
+a combination of all three.
+
+# Adding a Background Color
+
+You can use the 'background' property to set an image or a color as a 
+background to an element. Or you can use 'background-color' which only accepts
+a color.
+
+IE8 doesn't support rgba or hsla colors so as a fallback it's best to provide 
+color as so:
+
+div {
+  background-color: #b2b2b2;
+  background-color: rgba(0, 0, 0, .3);
+}
+
+This allows browsers with support for rgba to sue the later color, while 
+those that don't will use the previous color.
+
+# Adding a background image
+
+div {
+  background-image: url("alert.png");
+}
+
+We are able to use the url function to identigy an image resource with which
+we should load ad a background.
+
+To prevent unwanted duplication of the image to fill up an element we can use
+background-repeat and background-position properties to control how or even 
+whether the image repeats.
+
+'background-repeat' By default an image will repeat until the element which
+  it is filling is full. Setting this to no-repeat will prevent this.
+
+'background-position' allows us to control where within an element an image
+  will be positioned.
+
+# Designing Gradient Backgrounds
+
+Gradient backgrounds allow us to use images and repeats to produce 
+interesting gradients.
+
+Although supported by all modern browsers it is worth utilising 
+vender-prefixes to ensure the best possible support.
+
+e.g.
+
+div {
+  background: #466368;
+  background: -webkit-linear-gradient(#648880, #293f50);
+  background:    -moz-linear-gradient(#648880, #293f50);
+  background:        -linear-gradient(#648880, #293f50);
+}
+
+We can also use words to define the direction we want the gradient to 
+travel in. By default it flows from top (right value) to the bottom (left
+value). 
+
+e.g.
+
+div {
+  background: #466368;
+  background: linear-gradient(to right bottom, #648880, #293f50);
+}
+
+allows us to tell the gradient to travel from top left to right bottom.
+We can also use a degree value to tell which direction the gradient should 
+travel in.
+
+We can also use radial gradients to move from the inside to the out. 
+Radial gradients can be more complicated with values for location, size,
+and radius etc.
+
+We can also add Gradient color steps with multiple colors.
+
+e.g.
+
+div {
+  background: #648880;
+  background: linear-gradient(to right, #f6f1d3, #648880 10%, #293f50);
+}
+
+By using a percentage you can have more control over when a color changes.
+
+# Multiple Background Images example.
+
+It's possible to use multiple background images and layer them on top of 
+eachother.
+
+By using background and comma separated values, you can use multiple images.
+The first listed background will occur first with each listed afterwards
+being behind it.
+
+# Exploring new backgroudn properties
+
+'background-size' allows us to specify a size for a background image.
+  You can also provide sizing. If you only define one measurement, e.g.
+  width: 100% height will be whatever it need to be to maintain the correct 
+  aspect ratio.
+
+'cover' or 'contain' 
+  cover will resize an image to completely cover an element while maintaining
+  the images proportions. If an images proportions don't match the elements,
+  part of the image will be cropped.
+    contain on the other hand, will expand or shrink to fill an element but 
+  won't extend beyond the borders of the element and so will likely not fill 
+  it.
+
+'background-clip' specifies the surface area that a background-image will cover
+
+'background-origin' specifies where a backgroud image should originate.
+
+  These two properties corresponded with the release of three new keyword values.
+    border-box, padding-box and content-box.
+  Each of these new values tells the image how far the image can extend into the
+  element.
+    By default the image is set to padding-box. 
+
+
+/#8 - Lesson 8 - Creating Lists #/
+
+## HTML
+    Unordered Lists
+    Ordered Lists
+    Decription Lists
+    Nesting Lists
+
+## CSS
+  List Item styling
+  Horizontoally Displaying list
+
+HTML provides three types of lists:
+  ordered,
+  unordered, and
+  description;
+
+That which we use depends on the semantics of what the list should contain.
+  
+# Unordered Lists <ul>
+
+A list of items where the order of them is not of importance.
+
+By default, most browsers add a vertical margin and left padding to the
+<ul> element and precede each <li> with a solid dot. This dot is called a 
+list item marker.
+
+# Ordered Lists <ol>
+
+Work similarly to unordered lists except the order is important.
+
+By default the list marker is a number.
+
+In an ordered list the 'start' attribute tells the element which number 
+from which the element should start.
+
+'reverse' this attribute flips an ordered list so the the highest number 
+starts first.
+
+Within a <li> element you can use the 'value' attribute to set the value of
+that list item. following list items will be recalculated accordingly.
+
+# Description Lists
+
+These are used to outline multiple terms and their descriptions, as in
+a glossary, for example.
+
+Each item requires a <dt> element and a <dd> element. <dt> describes is the 
+main term. <dd> is the description of the term.
+
+# Nesting Lists
+
+It is possible to nest lists by containing a collection of list elements
+within a list item.
+
+# List Item styling
+
+'list-style-type' property is used to set the content of a list item marker
+  The available markers range from squares and decimal numbers all the way to
+  Armenian numbering. They can be added to either ordered or unordered lists
+  and may be placed on either the ul ol or li elements.
+
+  Available list style types:
+    none
+    disc
+    circle
+    square
+    decimal
+    decimal-leading-zero
+    lower-roman
+    upper-roman
+    lower-greek
+    lower-alpha / lower-latin
+    upper-alpha / upper-latin
+    armenian
+    georgian
+
+# Using an image as a list marker.
+
+  It is possible to use an image as a list marker.
+
+  To do this you use list-style-type: none
+  add a backgroud image
+  add padding.
+
+'list-style-position'
+  defines if text will or won't wrap arround the marker.
+  accepts values outside inside or inherit.
+
+'list-style' allows shorthand of the properties just discussed in this fashion:
+  list-style: <list-style-type> <list-style-position>
+
+# Horizontally displaying list.
+
+There are a few different ways to do this. We can make the display property 
+of the element 'inline' or 'inline-block'.
+  'inline-block' is normally preferable as that way we can also add height
+and width dimensions to the element as well as other block only attributes.
+
+When inline or inline-block is used, the list-marker will be lost, if you
+need to keep this, you should use 'float' instead and add padding so that 
+the marker doesn't sit on the previous elements value.
+
+# Navigational List Example.
+
+See example code.
+
+/# Lesson 9 - Adding Media #/
+
+## HTML
+    Adding Images
+    Adding Audio
+    Adding Video
+    Adding Inline Frames
+    Figures & Captions
+
+# Adding Images
+
+To add images we ue an <img> element. An image is self-containing with 
+attributes only. The src attribute must be provided to specify the source 
+of the image.
+
+<alt> describes the alternative text of the image.
+
+e.g.
+
+<img src="dog.jpg alt="A black, brown, and white dog wearing a kerchief">
+
+Most commonly supported image formats are gif, jpg and png.
+
+# Sizing Images
+
+It is important to tell the page how large images are as that way the page
+can reserve space and then load faster.
+
+you specify image size inline or in CSS. CSS will take precedence over
+inline.
+
+# Positioning Images
+
+Images are inline-level elements by default but can be amended as you would 
+with other elements.
+
+Normally images are displayef flush right or left or as block level elements.
+That way the text can flow around the image or the block appears on it's own
+line.
+
+When an image is for the design of the page and isn't seen as content, one should
+use background-image or background instead.
+
+# Adding Audio
+
+The <audio> element allows you to add audio to a file in much the same way that 
+you would add an image. Except you are required to use an opening and closing tag.
+
+Most popular additional attributes for audio files are as follows.
+
+'autoplay' - plays automatically. - doesn't need audio element to be visible.
+'controls' - if visible, controls must be present in element attributes.
+'loop' - loops file continuosly
+'preload' - If not present all information about the file is loaded. Using 
+  'preload="metadata"' or "none" is better when audio isn't essential to the page.
+
+# Audio Fallbacks and Multiple Sources
+
+Most popular types are ogg, mp3 and wav. To include fallbacks it's best to strip
+the source attribute out of the element and instead include them in the source element.
+
+By providing a number of file types the browser can then load whichever one it is best able
+to. Equally, you can provide a file to be downloaded and played outside the browser.
+
+e.g.
+
+<audio controls>
+  <source src="jazz.ogg" type="audio/ogg">
+  <source src="jazz.mp3" type="audio/mpeg">
+  <source src="jazz.wav" type="audio/wav">
+  Please <a href="jazz.mp3" download>download</a> the audio file.
+</audio>
+
+# Adding Video
+
+This is very similar to adding audio.
+
+All the same attributes and fallbacks apply here too.
+
+An exception is the video element will display even if controls aren't included Although
+you will need to also include autoplay if you don't want to include controls (which is
+considered bad practice).
+
+As with images, specifying a size etc, allows the page to load the content faster.
+
+To build a custom video player javascript is required.
+
+An additional attribute for videos is the 'poster' attribute which allows us to specify
+an image to show before the video is played.
+
+The same fallbacks apply as with audio, except additionally we might also use a youtube or 
+vimeo embedded element.
+
+# Adding Inline Frames
+
+Another way to add content to a page is to embed another HTML page within the current page.
+
+<iframe> accepts a 'src' attribute. The src can be relative to the page or an absolute url
+  for an entirely different page. e.g. google maps.
+
+iframe styles can be adjusted with the frameborder width and height html attributes or 
+using the border, width and height CSS properties.
+
+# Semantically Identifying Figures & Captions
+
+The <figure> block can be used to identify and wrap self-contained content, often media.
+The <figcaption> provides a caption for the contained media. It can be positioned 
+anywhere within the figure element.
+
+/# LESSON 10 - Building Forms #/
+
+## HTML
+    Initialising a Form
+    Text Fields & Textareas
+    Multiple Choice Inputs & Menus
+    Form Buttons
+    Other Inputs
+    Organising Form Elements
+    Form & Input Attributes
+
+# Initialising a Form
+
+The <form> element identifies where on the page a from should appear. It also wraps
+all the different form components.
+
+The two most common attributes for a form element are:
+
+'action' which tells us which resource is responsible for handling the form submission data.
+'method' which is the http method by which we will submit the data.
+
+# Text Fields and Textareas
+
+<input> is the primary input type for text. It accepts a 'type' attribute and also a 'name'
+  attribute which is used as a key when you submit the data.
+
+  The element is self-contained and does not require a closing tag.
+
+  Originally the only available types were 'text' and 'password'.
+
+  However, with HTML5, you now have a host of other types:
+
+  - color     - date      - datetime
+  - email     - month     - number
+  - range     - search    - tel
+  - time      - url       - week
+
+<textarea> Is another element that's used to capture text-based data. 
+  textarea can capture larger passages of text spanning multiple lines.
+
+  It has start and end tags so that it can wrap a starting comment.
+
+  It only accepts one type of value, and so the type attribute isn't relevant here. 
+
+  text area has two sizing attributes, 'cols' for width and 'rows' for height.
+  Size of textarea is more commonly controlled with height and width properties in CSS.
+
+# Multiple Choice inputs and Menus.
+
+There are a number of different options for allowing users to select a number
+of predefined inputs.
+
+# Radio buttons
+
+<input type="radio" name="day" value="Friday" checked> Friday
+
+Radio buttons allow us to make a quick choice from a small list of options.
+
+Each name of a group of radio buttons should be the same. We use the value
+attribute to set the value to assign to the radio button. Radio buttons 
+can only have one option selected.
+
+# Check Boxes
+
+Very similar to radio buttons except that you can select multiple values at a time.
+
+# Drop-Down Lists
+
+Dropdown lists are the perfect way to give a user a long list of items to choose from.
+
+To create a drop down list you use:
+
+a <select> tag which wraps <option> elements. 
+
+The select tag contains the 'name' attribute while the option tag contains the 'value'
+attribute and also wraps text visible to the user. 
+
+To select multiple values you need to apply the 'multiple' attribute to the select tag.
+
+The size of the select box can be controlled with CSS.
+
+# Form Buttons
+
+Normally form data is submitted with a button. The submit element can be another <input>
+element but will have the 'type' (and 'name') "submit" and the 'value' attribute will
+represent the text that appears on the button.  
+
+You can also use a <button> element which doesn't require a 'type' of "submit" and it also 
+comes with an opening and closing tag so that text on the button will be contained
+between these two tags.
+
+# Other Inputs
+
+# Hidden input
+
+Hidden allows us to pass data to the server without displaying it to users. It allows us
+to capture information that is not pertinent to the user but provides us with useful 
+information. It is still viewable to the source code and dev tools so shouldn't contain
+sensitive information.
+
+e.g.
+
+<input type="hidden" name="tracking-code" value="abc-123">
+
+# File Input
+
+To allows users to add a file to a form use an <input> with the type 'file'.  
+
+Styling of file form input is limited and tends to be browser specific. But is possible
+with the use of javascript etc. 
+
+# Organising Form Elements
+
+Organising form elements is crucial in allowing users to properly complete the forms with
+the correct information.
+
+<label> 's provide captions and / or headings for controls. label's accept a 'for' attribute
+  which should be set to the 'id' attribute of the associated input.
+
+  You can also wrap the input in the label. Which allows for the omission of the connected 
+  'for' and 'id' attributes.
+
+<fieldset> Groups form controls and form inputs into organised sections. They are block
+  level elements that wrap related elements. By default, fieldsets include a border
+  outline.
+
+<legend> provides a caption or heading for a fieldset element.
+
+# Form & Input Attributes
+
+There are a number of additional attributes that enable different form functionality
+
+'disabled' is an attribute that prevents an input being used. 'disabled' elements won't 
+  send any data to the server. 
+
+'placeholder' provides a hint or tip within the text of the form.
+
+'required' ensures that the field has data to be submitted to the server before the form
+  can be submitted. 
+
+Validation also occurs specific to a form's type attribute.
+
+Additional Attributes:
+
+  - accept
+  - formaction
+  - formnovalidate
+  - maxlength
+  - readonly
+  - autocomplete
+  - formenctype
+  - formtarget
+  - min
+  - selectionDirection
+  - autofocus
+  - formmethod
+  - max
+  - pattern
+  - step
+
+/# Lesson 11 - Organising Data With Tables #/
+
+## HTML
+    Creating a Table
+    Table Structure
+
+## CSS
+    Table Borders
+    Table Striping
+    Aligning Text
+
+# Creating A Table
+
+Tables are made up of data that is contained within columns and rows. At a minimum
+a table must consist of a <table>, <tr> and a <td> (table, table row, and table data).
+
+A <table> element initialises a table on a page.
+
+a <tr> can be added once a table has been added. There can be a large number of rows
+  per page.
+
+<td> represents the table data in each row.
+
+<th> defines data that will be used to hold columns headers. the 'scope' attribute of a 
+  th defines whether the heading defines a column 'col', row 'row', a group of columns 
+  'colgroup' or a group of rows 'rowgroup'.
+
+'headers' is an attribute that is similar to scope. a headers attribute can be applied
+  to a cell and then it will be associated with the header with a matching 'id' attribute.
+
+<caption> Provides a caption or title for the table.
+
+# Table Head, body and Foot
+
+Content within a table can be broken up into a table head body & foot.
+
+<thead> wraps the heading row, follows caption and is before the body.
+<tbody> contains primary data of table.
+<tfoot> used to come directly after the thead. but is now more flexible.
+
+We can use the 'colspan' and 'rowspan' attributes in order to spread a td or
+th over mutltiple rows or columns without breaking the table style.
+
+# Table Borders
+
+Effective use of borders can help make tables more comprehensible.
+
+Two properties that make a big difference are border-collapse and 
+border-spacing.
+
+'border-collapse' allows for better control over which elements in a table
+    have priority over borders. There are three values:
+      collapse, inherit, seperate.
+    seperate is the default. collapse value on the other hand condenses 
+    the borders into one. choosing the table cell as the primary border. 
+
+'border-spacing' adds space between each elements borders. This only works 
+    when the the border-collapse property is set to seperate. border-spacing 
+    accepts two values, one for horizontal spacing and one for vertical 
+    spacing.
+  
+# Table Striping
+
+Table striping means setting alternate background colours to rows to highlight 
+row structure.
+  To achieve striping you can either use alternate classes on different rows,
+or you can use the :nth-child psuedo class selector with an even argument.
+
+# Aligning Text
+
+We can move text horizontally using the text-align property. To align text 
+vertically we need to use the vertical-align property. This only works with 
+inline and table-cell elements.It won't work for block, inline-block or any
+other elements.
+
+
+
+/# Lesson 12 - Writing Your Best Code #/
+
+## HTML
+    HTML Coding Practices
+    Additional Resources
+
+## CSS
+    CSS Coding Practices
+
+# HTML Coding Practices
+
+The goal is to write lean, well-organised code.
+
+-> Write Standards-Compliant Markup
+
+  Make sure to abide by rules and standards. 
+  Close tags properly. Use Id's and classes appropriately.
+  Validate your code.
+
+-> Make Use of Semantic Elements
+
+  There are well over 100 elements to use to build your
+  website. You should utilise elements that define the function that the 
+  element is performing.
+
+-> Use the Proper Document Structure
+
+  Use a proper <!DOCTYPE html> with a <head> and a <body> within a <html> 
+  element.
+
+-> Keep the Syntax Organised
+
+  Quick Rules:
+  - Use lowercase letter within element names, attributes, and values
+  - Indent nested elements
+  - Strictly use double-quotes, not single or completely omitted quotes.
+  - Remove the forward slash at the end of self-closing elements.
+  - Omit the values on Boolean attributes
+
+-> Use Practical ID & Class Values
+
+  These should relate to the content itself in a functional sense and should
+  not be a reference to the presentation of the element.
+
+-> Use the Alternative Text Attribute on Images
+
+  You should always use the alt attribute to describe an image. If the image
+  is unimportant then you should leave the alt attribute blank.
+
+-> Separate content from style
+
+  Don't use inline styles within HTML.
+
+  Use external style sheets and classes to apply style as necessary.
+
+-> Avoid a Case of "Divitis"
+
+  Avoid extensive and unnecessary use of div's. You should use sematically
+  relevant elements and use these to target the elements.
+
+-> Continually Refactor code.
+
+  Over time websites and code bases continue to evolve and grow.
+  Be sure to go back and remove old code and style as necessary.
+
+# CSS Coding Practices
+
+-> Organise Code with Comments
+
+  Should split styles into relevant groups, with comments detailing 
+  what the following styles pertain to.
+
+-> Write CSS using multiple Lines & Spaces.
+
+  We should write new styles on separate lines and these should
+  be indented as necessary.
+
+-> Use proper class names
+
+  Class names or values shuold be modular and should pertin to content 
+  within an element, not appearance. Class names should all be lowercase and
+  should use hyphen delimiters.
+
+-> Build Proficient Selectors
+
+  You should refactor code and maintain selectors to ensure that they 
+  don't becomes too long and specific. As they become more and more specific
+  the specificity score gets higher and higher and this can break the cascading
+  of the page, causing undesirable styling.
+
+-> Use Specific Classes When necessary
+
+  Specific classes are more performant than extremely long and specific 
+  selectors.
+
+-> Use Shorthand Properties & Values
+
+  Where appropriate we should use shorthand styles to style properties.
+  
+  It's not appropriate to ue shorthand when styling only one side
+  of a border for example.
+
+  But when setting all four sides it would be.
+
+-> Use shorthand Hexadecimal Color Values.
+
+-> Drop Unites from Zero values.
+
+-> Group and Align Vendor Prefixes.
+
+  You should supply a non-prefixed attribute after vendor specific prefixes.
+  Check which styles require them.
+
+-> Modularize Styles for Reuse
+
+
+# Overarching Themes
+
+  -> Be well organised, so that it is easy to read, edit, and maintain.
+  -> Be modular and flexible, allowing us to reuse code and patterns as
+    necessary
+  -> Look as ig one person wrote it, even if several people contributed.
+
+
+# Additional Resources
+https://learn.shayhowe.com/html-css/writing-your-best-code/#additional-resources

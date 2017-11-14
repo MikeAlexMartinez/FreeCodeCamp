@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My HTML and CSS Code Examples</title>
+        <style>
+          body {
+            font: 14px/24px "Open Sans", "HelveticaNeue-Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", Sans-Serif;
+          }
+          /* Clearfix */
+          .cf:before,
+          .cf:after {
+            content: "";
+            display: table;
+          }
+          .cf:after {
+            clear: both;
+          }
+          .cf {
+            *zoom: 1;
+          }
+          .container {
+            background: #eaeaed;
+          }
+          .container,
+          section,
+          aside {
+            border-radius: 6px;
+          }
+          section,
+          aside {
+            color: #fff;
+            background: #2db34a;
+            margin: 1.858736059%; /* 10px / 538px = .018587361 */ 
+            padding: 20px 0;
+            text-align: center;
+          }
+
+          @media all and (min-width: 420px) {
+            .container {
+              max-width: 538px;
+            }
+
+            section {
+              float: left;
+              width: 63.197026%;
+            }
+
+            aside {
+              float: right;
+              width: 29.3680297%;
+            }
+          }
+        </style>
+    </head>
+    <body>
+      <div class="container cf">
+        <section>section</section>
+        <aside>aside</aside>
+      </div>
+    </body>
+</html>

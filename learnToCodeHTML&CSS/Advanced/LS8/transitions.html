@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My HTML and CSS Code Examples</title>
+    <style>
+      body {
+        color: #fff;
+        font: 600 14px/24px "Open Sans", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", Sans-Serif;
+      }
+      section {
+        margin-top: 10px;
+      }
+
+      /* Clearfix */
+      .cf:before,
+      .cf:after {
+        content: "";
+        display: table;
+      }
+      .cf:after {
+        clear: both;
+      }
+      .cf {
+        *zoom: 1;
+      }
+
+      .box {
+        background: #2db34a;
+        height: 95px;
+        width: 95px;
+        line-height: 95px;
+        text-align: center;
+        border-radius: 6px;
+      }
+
+      /* First demo */
+      .demo {
+        transition-property: background;
+        transition-duration: 1s;
+        transition-timing-function: linear; 
+      }
+      .demo:hover {
+        background: #ff7b29;
+      }
+
+      /* Multiple */
+      .multi {
+        transition-property: background, border-radius;
+        transition-duration: .2s, 1s;
+        transition-timing-function: linear, ease-in;
+        transition-delay: 0s, 1s; 
+      }
+      .multi:hover {
+        background: #ff7b29;
+        border-radius: 50%;
+      }
+
+      /* shorthand enlarge */
+      .shorthand {
+        transition: height 1s ease-in-out 0s, width 1s ease-in-out 1s;
+      }
+      .shorthand:hover {
+        height: 180px;
+        width: 180px;
+      }
+
+      /* Awesome Button */
+      button {
+        border: 0;
+        background: #0087cc;
+        border-radius: 4px;
+        box-shadow: 0 5px 0 #006599;
+        color: #fff;
+        cursor: pointer;
+        font: inherit;
+        margin: 0;
+        padding: 12px 20px;
+        transition: all .1s linear;
+      }
+      button:active {
+        box-shadow: 0 2px 0 #006599;
+        transform: translateY(3px);
+      }
+
+      /* Card flip */
+      .card-container {
+        height: 150px;
+        perspective: 600;
+        position: relative;
+        width: 150px;
+      }
+      .card {
+        height: 100%;
+        position: absolute;
+        transform-style: preserve-3d;
+        transition: all 1s ease-in-out;
+        width: 100%;
+      }
+      .card:hover {
+        transform: rotateY(180deg);
+      }
+      .card .side {
+        backface-visibility: hidden;
+        border-radius: 6px;
+        height: 100%;
+        position: absolute;
+        overflow: hidden;
+        width: 100%;
+      }
+      .card .back {
+        background: #eaeaed;
+        color: #0087cc;
+        line-height: 150px;
+        text-align: center;
+        transform: rotateY(180deg);
+      }
+
+      /* Animation example */
+      @keyframes slide {
+        0% {
+          left: 0;
+          top: 0;
+        }
+        50% {
+          left: 244px;
+          top: 100px;
+        }
+        100% {
+          left: 488px;
+          top: 0;
+        }
+      }
+
+      .stage {
+        background: #eaeaed;
+        border-radius: 6px;
+        height: 150px;
+        position: relative;
+        min-width: 538px;
+      }
+      .stage:hover .ball {
+        animation-name: slide;
+        animation-duration: 2s;
+        animation-timing-function: ease-in-out;
+        animation-delay: .5s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+      }
+      .ball {
+        margin: 0;
+        background: #2db34a;
+        border-radius: 50px;
+        height: 50px;
+        position: absolute;
+        width: 50px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- Transition demo -->
+    <section class="cf">
+      <div class="box demo">Box</div>
+    </section>
+
+    <!-- Multiple properties -->
+    <section class="cf">
+      <div class="box multi">Box</div>
+    </section>
+
+    <!-- shorthand demo -->
+    <section class="cf">
+      <div class="box shorthand">Box</div>
+    </section>
+
+    <!-- Button Demo -->
+    <section class="cf">
+      <button>Awesome Button</button>
+    </section>
+
+    <!-- Card Flip --> 
+    <section class="cf">
+      <div class="card-container">
+        <div class="card">
+          <div class="side"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/29841/jimmy.jpg" alt="Jimmy Eat World"></div>
+          <div class="side back">Jimmy Eat World</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Animation -->
+    <section class="cf">
+      <div class="stage">
+        <figure class="ball"></figure>
+      </div>
+    </section>
+
+  </body>
+</html>
