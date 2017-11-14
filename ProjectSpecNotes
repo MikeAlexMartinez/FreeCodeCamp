@@ -1,0 +1,35 @@
+#############################################
+# Project Specifications - Project Planning #
+#############################################
+
+Source: http://www.pixelearth.net/pages/project-specification
+
+A Project Specification document outlines the scope of a project to
+stakeholders.
+
+A Project spec acts as a blueprint for a website. It communicates the 
+specific details about the project that need to be planned for, budgeted
+for and implemented.
+
+It gives an accurate impression of the purpose, scope, timeline, and 
+functionality involved in the project.
+
+The more thorough the specs the more accurate the estimate will be. In this
+way it is in your best interest to be as thorough as possible in your 
+specification.
+
+Common Elements for a Project Spec:
+  - Introduction - description of project
+  - Project Objectives
+  - Site User Roles - What types of roles will site users have.
+  - Functional Requirements Per User Role
+  - Design Specifications - how things should look and feel visually
+  - Flow or Logic Diagrams - for non-trivial processes 
+  - Success Criteria - how to know if your website is doing it's job.
+  - Site Map - The architechture, often in outline form, of the site content.
+  - Content Plan - type of content, and where the content will come from.
+  - Marketing Plan - how will the site make money.
+  - Site Maintenance - who will maintain the site
+  - Project Timeline - described timeline for completion.
+  - Budget - how much can be set aside for the project.
+  
