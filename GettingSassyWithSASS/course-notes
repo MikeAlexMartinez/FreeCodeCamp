@@ -1,0 +1,316 @@
+###################
+# SassShop Course #
+###################
+
+Contents:
+
+1 - Why Sass
+2 - The Sass Workflow
+3 - Sass Basics
+4 - Advanced SASS
+5 - Media Queries
+6 - Modular Architecture
+7 - Libraries and Tools
+
+
+## Section 1 - Why Sass
+
+- Websites are becoming increasingly complex.
+- CSS is getting harder to maintain.
+- Writing styles is often tedious and repetitive.
+- CSS can only do so much for us...
+
+We can use Sass Variables to create DRY CSS code.
+- We can use for colors, selectors or values.
+
+  e.g.
+
+  .header {
+    background-color: #531946;
+  }
+  .header a {
+    color: #fff;
+  }
+  .header a:hover {
+    color: #095169;
+  }
+
+  .footer {
+    background-color: #30162B;
+    color: #fff;
+  }
+  .footer a {
+    color: #095169;
+  }
+  .footer a:hover {
+    color: #fff;
+  }
+
+  .feature a {
+    background-color: #30162B;
+    color: #fff;
+  }
+
+  .feature a:hover {
+    color: #531946;
+  }
+
+  .content {
+    background-color: #fff;
+    color: #222;
+  }
+
+Becomes:
+
+  $white: #ffffff;
+  $black: #222222; // NOT! ;)
+  $eggplant: #531946;
+  $eggplantDark: #30162B;
+  $teal: #095169;
+
+  .header {
+    background-color: $eggplant;
+  }
+  .header a {
+    color: $white;
+  }
+  .header a:hover {
+    color: $teal;
+  }
+
+  .footer {
+    background-color: $eggplantDark;
+    color: $white;
+  }
+  .footer a {
+    color: $teal;
+  }
+  .footer a:hover {
+    color: $white;
+  }
+
+  .feature a {
+    background-color: $eggplantDark;
+    color: $white;
+  }
+
+  .feature a:hover {
+    color: $eggplant;
+  }
+
+  .content {
+    background-color: $white;
+    color: $black;
+  }
+
+We can use Sass-mixins for border-radius.
+
+  e.g.
+
+  .header {
+    border-radius: 5px;
+    padding: 5px 20px;
+    /* ... */
+  }
+
+  .footer {
+    border-radius: 5px;
+    padding: 5px 20px;
+    /* ... */
+  }
+
+  .feature a {
+    border-radius: 5px;
+    padding: 5px 20px;
+    /* ... */
+  }
+
+  .content {
+    border-radius: 5px;
+    padding: 5px 20px;
+    /* ... */
+  }
+
+becomes:
+
+  @mixin rounded-box {
+    border-radius: 5px;
+    padding: 5px 20px;
+  }
+
+  .header {
+    @include rounded-box
+    /* ... */
+  }
+
+  .footer {
+    @include rounded-box
+    /* ... */
+  }
+
+  .feature a {
+    @include rounded-box
+    /* ... */
+  }
+
+  .content {
+    @include rounded-box
+    /* ... */
+  }
+
+We can use it for selectors:
+
+  e.g.
+
+  .header {
+    /* ... */
+  }
+  .header a {
+    /* ... */
+  }
+  .header a:hover {
+    /* ... */
+  }
+
+  .footer {
+    /* ... */
+  }
+  .footer a {
+    /* ... */
+  }
+  .footer a:hover {
+    /* ... */
+  }
+
+  .feature a {
+    /* ... */
+  }
+  .feature a:hover {
+    /* ... */
+  }
+
+  .content {
+    /* ... */
+  }
+
+  becomes
+
+  .header {
+  /* ... */
+    a {
+      /* ... */
+      
+      &:hover {
+        /* ... */
+      }
+    }
+  }
+
+  .footer {
+    /* ... */
+    a {
+      /* ... */
+      &:hover {
+        /* ... */
+      }
+    }
+  }
+
+  .feature a {
+    /* ... */
+    &:hover {
+      /* ... */
+    }
+  }
+
+  .content {
+    /* ... */
+  }
+
+To Recap - Why SASS?
+
+  - Reduced complexity.
+  - Increased maintainability.
+  - Minimized repetition.
+  - Supercharged CSS!
+
+What is Sass?
+
+Sass is an extension of CSS that adds power and elegance to the basic language. 
+It allows you to use variables, nested rules, mixins, inline imports, and more, 
+all with a fully CSS-compatible syntax. Sass helps keep large stylesheets 
+well-organized, and get small stylesheets up and running quickly...
+
+It includes:
+
+a CSS Extension, CSS Preprocessor, SassScript Language, SassScript Interpreter
+
+There are two Sass syntaxes,
+
+Sassy CSS, whereby any valid CSS is therefore valid SASS.
+
+And .sass, which is the original hamlesque syntax.
+
+
+
+## Section 2 - Sass Workflow
+
+To run sass you can type:
+
+  sass <input-filename> <output-filename>
+
+or/
+
+  sass <input-dir> <output-dir>
+
+e.g.
+
+  sass sass/application.scss css/application.css
+
+Preferably you can run with a watcher (sneaky spy!):
+
+  sass --watch source.scss:output.css
+
+It may fail if output directory doesn't exist.
+
+--update will create if doesn't exist, as will watch.
+
+You can use options to customise output:
+
+Options: nested, expanded, compact, compressed.
+
+You should enable source maps in debugger.
+
+
+
+## Section 3 - Sass Basics
+
+1 - Nesting
+2 - Imports & Organisation
+3 - Variables
+4 - Math & Color Utilities
+
+# 1 - Nesting
+
+Like HTML, Sass can be nested.
+
+By allowing nesting Sass can:
+ - reduce repetition
+ - increase Organisation
+ - improve maintainability
+
+One should seek to keep nesting for CSS less than
+3 levels deep.
+
+One can use an & ampersand to reference the parent of 
+a nested element
+
+e.g.
+
+  a {
+    color: red;
+
+    &:hover {
+      color: black;
+    }
+  }
