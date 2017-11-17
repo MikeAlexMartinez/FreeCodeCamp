@@ -1,10 +1,77 @@
-$lightteal: #00BEBE;
+$white: #fff;
+$light-grey: #AEA4AD;
+$light-background: #EEE4DA;
+$blue-grey: #506F8E;
+
+
+/* change all elements to have border-box sizing */
+
+* {
+  &,
+  &:before, 
+  &:after {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+}
+
+body {
+  background: #EEE4DA;
+  font-family: 'Didact Gothic', sans-serif;
+  margin: 0;
+}
+
+a {
+  color: $blue-grey;
+
+  &:hover {
+    color: $light-grey;
+  }
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.wrapper {
+  margin: 0 auto;
+  width: 1200px;
+}
+
+.subcontent {
+  background: $white;
+  padding: 2em 0 3em;
+}
+
+.search {
+  float: right;
+}
 
 .header {
-  background-color: $lightteal;
-}
+  background: $light-grey;
+  border-bottom: 10px solid $white;
+  padding: 1em;
 
-.kittens li {
-  display: inline-block;
-}
+  h1 {
+    color: #506F8E;
+    font-family: 'ribeye Marrow', cursive;
+    font-size: 3em;
+    margin: .25em 0;
+    text-shadow: 1px 1px 0px #D9D0CB;
+  }
 
+  nav {
+    float: right;
+
+    a {
+      background: $blue-grey;
+      border-radius: 20px;
+      color: $light-background;
+      display: block;
+      margin-right: 1em;
+    }
+  }
+}
