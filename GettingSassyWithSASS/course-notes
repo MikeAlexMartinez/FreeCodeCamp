@@ -618,4 +618,20 @@ e.g.
     color: $content--color;
   }
 
-  
+# Sass Basics - Maths Operations
+
+Sass allows basic maths operations and string concatenation.
+
+Sass attempts to operate on mismatched units, but will throw an 
+error if incompatible.
+
+CSS allows for separating values with the / symbol.
+
+e,g, 1.25em/1.5 Tahoma, Arial, sans-serif;
+
+To trigger division one needs to:
+
+  - use a variable: $padding / 2  
+  - use paranthese ( 350 / .25 )
+  - use an expression for part of the division: 3 + 5 / 10
+
