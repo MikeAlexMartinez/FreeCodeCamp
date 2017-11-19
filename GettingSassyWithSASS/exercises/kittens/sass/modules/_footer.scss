@@ -1,0 +1,34 @@
+.footer {
+  background: $navy;
+  border-top: $default-border;
+
+  nav {
+    float: left;
+
+    a {
+      color: $light-grey;
+      display: block;
+      padding: 1em;
+
+      &:hover {
+        color: $lighter-grey;
+      }
+
+    }
+  }
+  
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    display: inline-block;
+  }
+}
+
+.copy {
+  color: $lighter-grey;
+  float: right;
+  margin: 1em 0;
+}

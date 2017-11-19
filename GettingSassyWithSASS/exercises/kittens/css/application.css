@@ -1,12 +1,11 @@
-/* change all elements to have border-box sizing */
 *, *:before, *:after {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
 body {
-  background: #EEE4DA;
-  font-family: 'Didact Gothic', sans-serif;
+  background: #eee4da;
+  font-family: "Didact Gothic", sans-serif;
   margin: 0; }
 
 a {
@@ -24,7 +23,7 @@ a {
   width: 1200px; }
 
 .subcontent {
-  background: #fff;
+  background: #ffffff;
   padding: 2em 0 3em; }
 
 .search {
@@ -32,20 +31,20 @@ a {
 
 .header {
   background: #AEA4AD;
-  border-bottom: 10px solid #fff;
+  border-bottom: 10px solid #ffffff;
   padding: 1em; }
   .header h1 {
     color: #506F8E;
-    font-family: 'ribeye Marrow', cursive;
+    font-family: "Ribeye Marrow", cursive;
     font-size: 3em;
     margin: .25em 0;
-    text-shadow: 1px 1px 0px #D9D0CB; }
+    text-shadow: 1px 1px 0px #DCD0CB; }
   .header nav {
     float: right; }
     .header nav a {
-      background: #506F8E;
+      background: #AEA4AD;
       border-radius: 20px;
-      color: #EEE4DA;
+      color: #eee4da;
       display: block;
       margin-right: 1em; }
       .header nav a:hover {
@@ -62,7 +61,7 @@ a {
 
 .footer {
   background: #506F8E;
-  border-top: 10px solid #EEE4DA; }
+  border-top: 10px solid #ffffff; }
   .footer nav {
     float: left; }
     .footer nav a {
@@ -79,7 +78,7 @@ a {
     display: inline-block; }
 
 .copy {
-  color: #D9D0CB;
+  color: #DCD0CB;
   float: right;
   margin: 1em 0; }
 
@@ -99,7 +98,7 @@ a {
       -o-transform: scale(1.1);
       transform: scale(1.1); }
   .kittens img {
-    border: 10px solid #fff;
+    border: 10px solid #ffffff;
     border-radius: 20px; }
   .kittens label {
     font-weight: bold; }
@@ -112,7 +111,7 @@ a {
     list-style-type: none;
     padding: 0; }
   .info li {
-    border-bottom: 1px dotted #EEE4DA;
+    border-bottom: 1px dotted #eee4da;
     margin-bottom: 1em;
     padding-bottom: 1em;
     padding-right: 1em; }

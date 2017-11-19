@@ -385,3 +385,237 @@ becomes:
     border-width: 1px;
   }
 
+# 2 - Imports and Organisation
+
+Sass modifies @iport to include a resource during compilation instead of during the client side.
+
+@import takes a path to a Sass resource, file extension is optional. It looks within the main Sass file's 
+parent directory. 
+
+e.g.
+
+Structure:
+
+  - Project Awesomse
+    |- sass
+        |- lib
+            |- compass.scss
+            |- fontawesome.scss
+        |- base.scss
+        |- grid.scss
+        |- application.scss
+        |- utilities.scss
+        |- vars.scss
+    |- css
+        |- application.css
+
+Code: 'application.scss'
+
+  @import "vars";
+  @import "lib/compass";
+  @import "lib/fontawesome";
+  @import "utilities";
+  @import "grid";
+  @import "base";
+
+Command: sass --watch sass/application.scss:css/application.css
+
+"sass sass/ css/" would compile the whole directory into the target directory.
+
+"Imports partials" allow us to use an _underscore to define a partial.
+
+Partials won't compile to css on their own. They must be imported.
+
+They allow us to break up code into modular maintainable chunks.
+
+# Common Practices
+
+_vars.scss is a separate sheet for all variables and settings
+
+Order of imports are as follows:
+
+Variables > Libraries > Base > Modules > Pages
+
+e.g.
+
+  // Variables
+  @import "vars";
+
+  // Libraries
+  @import "lib/compass";
+  @import "lib/fontawesome";
+  
+  // Base Styles, Utility Classes, etc.
+  @import "base/all";
+  
+  // Modules
+  @import "modules/all";
+  
+  // Page Styles
+  @import "pages/all";
+
+_all.scss is often used to import collections of similar imports.
+
+You can keep imports DRY by using comma separation to group them
+together.
+
+  // Variables
+  @import "vars";
+
+  // Libraries
+  @import "lib/compass",
+          "lib/fontawesome";
+  
+  // Application
+  @import "base/all",
+          "modules/all",
+          "pages/all";
+
+# Sass Basics Variables
+
+Some uses:
+- colors
+- font sizes
+- font families
+- font paths
+- padding
+- margins
+- breakpoints
+- border-radius
+- content
+- gradients
+- shadows
+- SELECTORS!
+- LOGIC!
+- ALL THE THINGS!!!
+
+Variables are defined a la CSS prop/val pairs. 
+
+  $property: value;
+
+They a rew then referenced with there property "$name". 
+
+# Variable Data Types
+  - Numbers
+  - Strings
+  - Colors
+  - Lists
+  - Booleans
+  - Null
+  - Maps
+
+Previous variables can be redeclared with new variables
+
+e.g. 
+
+$border-width: 2px;
+$border-width: 4px;
+
+a {
+  border-width: $border-width;
+}
+
+=>
+
+a {
+  border-width: 4px;
+}
+
+Variables are only available within the scope in which they are defined.
+
+# Variable Interpolation
+
+Variables can be injected into selectors, property names and values, and Strings
+via the #{$variable} container.
+
+e.g.
+
+sass:
+
+  $side: left;
+
+  .box-#{side} {
+    border-#{side}: 1px solid #ccc;
+
+    &:before {
+      content: "It's on the #{$side} side";
+    }
+  }
+
+=> 
+
+css:
+
+  .box-left {
+    border-left: 1px solid #ccc;
+  }
+
+  .box-left:before {
+    content: "It's on the left side";
+  }
+
+One should seek to use a combination of Descriptive colors and Functional Colors. 
+And even a combination of the two.
+
+e.g.
+
+  // Descriptive Colors
+  $white:        #ffffff;
+  $grey:         #222222;
+  $eggplant:     #531946;
+  $eggplantDark: #30162B;
+  $teal:         #095169;
+
+  // Functional Colors
+  $header--background:          $eggplant;
+  $header__logo--color:         $white;
+  $header__logo--color--hover:  $teal;
+
+  $footer--background:          $eggplant--dark;
+  $footer--color:               $white;
+  $footer__nav--color:          $teal;
+  $footer__nav--color--hover:   $white;
+
+  $content--background:         $white;
+  $content--color:              $grey;
+
+  $feature__link--background:   $eggplant--dark;
+  $feature__link--color:        $white;
+  $feature__link--color--hover: $eggplant;
+
+  .header {
+    background-color: $header--background;
+  }
+  .header a {
+    color: $header__logo--color;
+  }
+  .header a:hover {
+    color: $header__logo--color--hover;
+  }
+
+  .footer {
+    background-color: $footer--background;
+    color: $footer--color;
+  }
+  .footer a {
+    color: $footer__nav--color;
+  }
+  .footer a:hover {
+    color: $footer__nav--color--hover;
+  }
+
+  .feature a {
+    background-color: $feature__link--background;
+    color: $feature__link--color;
+  }
+
+  .feature a:hover {
+    color: $eggplant;
+  }
+
+  .content {
+    background-color: $content--background;
+    color: $content--color;
+  }
+
+  

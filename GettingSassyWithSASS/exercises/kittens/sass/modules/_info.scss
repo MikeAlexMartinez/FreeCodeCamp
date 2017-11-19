@@ -1,0 +1,47 @@
+.info {
+  float: left;
+  padding-right: 4em;
+  width: 40%;
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  li {
+    border-bottom: 1px dotted $off-white;
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+    padding-right: 1em;
+  }
+
+  a {
+    font-size: 1.25em;
+    text-decoration: none;
+  }
+
+  .btn {
+    color: $light-grey;
+    font-size: 1em;
+    font-weight: bold;
+    text-decoration: none;
+
+    &:hover {
+      color: $navy;
+    }
+  }
+}
+
+.location {
+  padding-right: 0;
+  width: 20%;
+
+  dt {
+    color: $navy;
+    font-weight: bold;
+  }
+
+  dd {
+    margin: 0;
+  }
+}
