@@ -1107,3 +1107,29 @@ e.g.
       @include typeset($size);
     }
   } 
+
+Advanced Sass Theming
+
+  $themes: (
+    gray: (
+      button-bg: #ccc,
+      button-color: #f2f2f2
+    ),
+    brown: (
+      button-bg: #ab906b,
+      button-color: #ecdac3
+    )
+  );
+
+  @function setStyle($theme, $property) {
+    @return map-get(map-get($themes, $theme), $property);
+  }
+
+  .btn {
+    @each $key, $value in $themes {
+      .theme--#{$key} & {
+        background: setStyle($key, button-bg);
+        color: setStyle($key, button-color);
+      }
+    }
+  }
