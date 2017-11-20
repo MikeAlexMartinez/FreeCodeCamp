@@ -1,7 +1,7 @@
 .info {
   float: left;
   padding-right: 4em;
-  width: 40%;
+  width: $base-width / 5 * 2;
 
   ul {
     list-style-type: none;
@@ -34,7 +34,7 @@
 
 .location {
   padding-right: 0;
-  width: 20%;
+  width: $base-width / 5;
 
   dt {
     color: $navy;

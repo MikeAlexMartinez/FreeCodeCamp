@@ -1,0 +1,7 @@
+@mixin scale-transform($amount: 1.1) {
+  -webkit-transform: scale($amount); 
+    -moz-transform: scale($amount);
+      -o-transform: scale($amount);
+     -ms-transform: scale($amount);
+         transform: scale($amount);
+};

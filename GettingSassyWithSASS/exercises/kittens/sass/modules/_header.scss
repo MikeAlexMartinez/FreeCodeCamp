@@ -15,18 +15,15 @@
     float: right;
 
     a {
-      background: $light-grey;
+      background: $navy;
       border-radius: $default-border-radius;
       color: $off-white;
       display: block;
       margin-right: 1em;
     
       &:hover {
-        -webkit-transform: scale($scale-amount); 
-           -moz-transform: scale($scale-amount);
-             -o-transform: scale($scale-amount);
-            -ms-transform: scale($scale-amount);
-                transform: scale($scale-amount);
+        @include scale-transform();
+        background: darken($navy, 50%);
       }  
     }
   }

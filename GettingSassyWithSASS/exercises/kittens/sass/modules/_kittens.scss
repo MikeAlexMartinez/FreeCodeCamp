@@ -7,14 +7,10 @@
     float: left;
     margin-bottom: 2em;
     text-align: center;
-    width: 300px;  
+    width: $base-width / 4;  
   
     &:hover {
-      -webkit-transform: scale($scale-amount);
-         -moz-transform: scale($scale-amount);
-          -ms-transform: scale($scale-amount);
-           -o-transform: scale($scale-amount);
-              transform: scale($scale-amount);
+      @include scale-transform();
     }
   }
 

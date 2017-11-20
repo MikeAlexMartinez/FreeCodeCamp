@@ -635,3 +635,170 @@ To trigger division one needs to:
   - use paranthese ( 350 / .25 )
   - use an expression for part of the division: 3 + 5 / 10
 
+Sass also comes with a set of maths functions.
+
+abs($num) - absolute value
+ceil($num) - round up to closest whole number
+floor($num) - round down to closest whole number
+percentage($num) - convert to percentage
+round($num) - round to closest whole number
+max($list) - max list value
+min($list) - min list value
+
+One can also use math to manipulate colors.
+
+# Sass Basics - Color Utilities
+
+rgba($hex, $alpha) - Converts Hex to RGBA and sets alpha (opacity)
+mix($color1, $color2) - Mixes two colors together
+lighten($color, $percent) - Makes a color lighter
+grayscale($color) - converts a color to grayscale
+darken($color, $percent) - Makes a color darker
+invert($color) - inverts a color
+saturate($color, $percent) - Makes a color more saturated
+complement($color) - Returns the complement of a color
+desaturate($color, $percent) - Makes a color less saturated
+
+AND MORE!!!...
+
+This website: 'http://jackiebalzer.com/color' gives examples of these.
+
+
+## Section Four - Advanced SASS
+
+Advanced Sass
+
+1 - Mixins (@include)
+2 - Inheritance (@extend)
+3 - Directives
+4 - Maps
+
+Advanced Sass Mixins 
+  - Variables let you reuse single values,
+  - Mixins let you reuse blocks of styles.
+
+
+e.g.
+
+  @mixin rounded-box {
+    border-radius: 5px;
+    padding: 5px 20px;
+  }
+
+  .header {
+    @include rounded-box;
+  }
+
+We define with the @mixin directive
+
+We use with the $include directive
+
+Mixins must be defined before they're referenced.
+
+Mixins can be used with any other style rules.
+
+You can nest within mixins just like you can elsewhere.
+
+Mixins accept optional arguments.
+
+
+# Mixin Arguments
+
+Are great for repeated blocks of styles where the values differ from case 
+to case.
+
+e.g.
+
+  @mixin rounded-corners($radius) {
+    -webkit-border-radius: $radius;
+       -moz-border-radius: $radius;
+            border-radius: $radius;
+  }
+
+  .header {
+    @include rounded-corners(5px);
+  }
+
+  .footer {
+    @include rounded-corners(10px);
+  }
+
+You can set a mixins argument to have a default value like so:
+
+  @mixin rounded-corners($radius: 5px) {
+    ...
+  }
+
+Arguments need to be comma-separated and order matters.
+
+Optional arguments must be last in the set.
+
+Mixins keyword arguments mean order doesn't matters
+e.g.
+
+  @mixin rounded-box($radius: 5px, $padding: 20px) {
+    border-radius: $radius;
+    padding: $padding;
+  }
+
+  .header {
+    @include rounded-box($padding: 10px, $radius: 10px);
+  }
+
+One can use Variable interpolation within a mixin
+
+e.g.
+  @mixin toolbar-border($side, $width: 2px) {
+    border-#{$side}: $width solid $toolbar-border;
+  }
+
+  .sidebar--left {
+    @include toolbar-border("right");
+  }
+
+Mixins Margin & Padding
+
+  @mixin margin--vert($top, $bottom: $top) {
+    margin-bottom: $bottom;
+    margin-top: $top;
+  }
+
+  .module { @include margin--vert(1em, 3em); }
+
+
+# Inheritance
+
+One can use the @extend directive to help group selectors together,
+
+e.g.
+
+  .message {
+    border: 2px solid;
+    margin-bottom: 1em;
+    padding: 1em;
+    text-align: center;
+  }
+
+  .message-alert {
+    @extend .message;
+    @include message-colors($yellow);
+  }
+
+Becomes:
+
+  .message,
+  .message-alert {
+    border: 2px solid;
+    margin-bottom: 1em;
+    padding: 1em;
+    text-align: center;
+  }
+
+  .message-alert {
+    border-color: goldenrod;
+    color: goldenrod;
+  }
+
+Any cSS class can be extended
+
+We 
