@@ -1,6 +1,9 @@
 // Variables
-@import "vars/vars",
-        "base/mixins";
+@import "vars/vars";
+
+// Extendables
+@import "base/mixins",
+        "base/placeholders";
 
 // Application
 @import "base/base",

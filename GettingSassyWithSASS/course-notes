@@ -799,6 +799,311 @@ Becomes:
     color: goldenrod;
   }
 
-Any cSS class can be extended
+Any CSS class can be extended
 
-We 
+We reference the class that we want to extend with the @extend 
+directive.
+
+extended classes do not need to be redefined before they are referenced.
+
+You can still nest.
+
+Can be used with any other style rules.
+
+# Inheritance Placeholders
+
+Where a styling class isn't used directly but is simply extended one can
+utilise placeholders.
+
+e.g. 
+
+  %message {
+    /.../
+  }
+
+  .message-alert {
+    @extend %message;
+    @include message-colors($yellow);
+  }
+
+@extend Cross-Module Patterns
+
+e.g.
+  
+  %hoverTransition
+
+  %disabled
+
+  %muted
+
+@extend Font Families
+
+  %font--main-family
+
+  %font--main
+
+@extend Font Sizes
+
+  %copy--small
+
+@extend Module Setup
+
+
+
+# @mixin VS @extend
+
+@extend without arguments,
+
+@mixin with arguments.
+
+
+# Advanced Sass Directives
+
+1 - functions
+2 - Conditionals
+3 - Loops
+
+
+# functions
+
+Sass lets us define custom functions.
+
+e.g.
+
+  @function fluidize($target, $context) {
+    @return ($target / $context) * 100%;
+  }
+
+  .sidebar {
+    width: fluidize(350px, 1000px);
+    // => width: 35%;
+  }
+
+Define a function with a @function directive
+
+Return a value with the @return directive
+
+call a function with its name and parens, with args if needed.
+
+Must be defined before called.
+
+Args have same rules as for mixins.
+
+# Conditionals
+
+We begin a condition with the @if directive then give a comaprison
+to evaluate.
+
+We can use '@else if' for additional comparatives.
+
+And @else as a fallback.
+
+== , > , >= , != , < , <=
+
+# Loops
+
+Sass allows us to loop through lists.
+
+@each $var in <list>
+
+e.g.
+
+  $themes: dark dark-mid light-mid light;
+
+  @each $theme in $themes {
+    .theme-#{theme} {
+      @include theme-colors(theme);
+    }
+  }
+
+
+Sass lets us loop through number ranges
+
+Two forms of @for loops
+
+@for $var from <start> through <end>
+
+or/
+
+@for $var from <start> to <end>
+
+e.g.
+
+  @for $i from 1 through 12 {
+    .grid-col-#{i} {
+      width: $gird-col-width * $i;
+    }
+  }
+
+Sass lets us loop conditionally
+
+e.g.
+
+  $i: 1;
+
+  @while $i <= 12 {
+    .grid-col-#{$i} {
+      width: $grid-col-width * $i;
+    }
+
+    $i: $i + 1;
+  }
+
+the @ while directive takes the forms
+
+  @while <comparison>
+
+It will output styles until the comaprison returns false
+
+You must manually update the variable you're comparing against.
+
+
+# Advanced Sass - Maps
+
+Maps give us key/value pairings.
+
+e.g.
+
+  $mymap (
+    key1: value1,
+    key2: value2,
+    key3: value3
+  )
+
+Maps must always be surrounded by parentheses
+
+key-value pairs must always be comma separated.
+
+Maps can be looped through or accessed via built in map functions.
+
+Advanced Sass Maps:
+
+e.g.
+
+  $eye_color: (
+    jeremy: #0989cb,
+    beth: #8666ae,
+    sarah: #02bba7
+  )
+
+  $font: (
+    jeremy: Helvetica,
+    beth: Verdana,
+    sarah: Times
+  )
+
+  @each $key, $value in $eye_color {
+    .#{$key} {
+      background: $value;
+      font-family: map-get($font, $key);
+    }
+  }
+
+=> 
+
+  .jeremy {
+    background: #0989cb;
+    font-family: Helvetica;
+  }
+
+  .beth {
+    background: #8666ae;
+    font-family: Verdana;
+  }
+
+  .sarah {
+    background: #02bba7;
+    font-family: Times;
+  }
+
+Advanced SASS map functions
+
+  map-get($map, $key)
+
+  map-marge($map1, $map2)
+
+  map-remove($map, $keys...)
+
+  map-keys($map)
+
+  map-values($map)
+
+  map-has-key($map, $key)
+
+Advanced SASS Icons
+
+  $icons: (
+    checkmark: "\e600",
+    plus: "\e601",
+    minus: "\e602"
+  )
+
+  @each $name, $value in $icons {
+    .icon--#{$name} {
+      &:before { content: $value; }
+    }
+  }
+
+Advanced Sass Module Skins
+
+  $messages: (
+    error: (#d82d2d, #666),
+    success: (#52bf4a, #fff),
+    warning: (#c23435, #fff)
+  )
+
+  @each $name, $colors in $messages {
+    $bg: nth($colors, 1);
+    $color: nth($colors, 2);
+
+    .message--#{$name} {
+      background-color: $bg;
+      color: $color;
+    }
+  }
+
+Advanced Sass Z-indexes
+
+  $layers: (
+    bottom: 1,
+    middle: 5,
+    top: 10
+  )
+
+  @mixin layer($name) {
+    z-index: map-get($layers, $name);
+  };
+
+  .overlay {
+    @include layer(middle);
+  }
+
+  .lightbox {
+    @include layer(top);
+  }
+
+Advanced Sass Font Sizes
+
+e.g.
+
+  $font--sizes: (
+    ( base,  $base-font-size,     $base-line-height ),
+    ( small, $base-font-size*.75, $base-line-height*.75 ),
+    ( large, $base-font-size*1.5, $base-line-height*.1.5 ),
+  );
+
+  @mixin typeset($level) {
+    @each $item in $font-sizes {
+      @if $level == nth($item, 1) {
+        font-size: nth($item, 2);
+        line-height: nth($item, 3);
+      }
+    }
+  }
+
+  @each $set in $font--sizes {
+    $size: nth($set, 1);
+    #{"%size--" + $size} {
+      @include typeset($size);
+    }
+  } 

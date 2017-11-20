@@ -18,13 +18,8 @@ a {
   }
 }
 
-.clearfix:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
 .wrapper {
+  @extend %clearfix;
   margin: 0 auto;
   width: $base-width;
 }
