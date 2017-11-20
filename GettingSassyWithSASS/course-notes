@@ -1133,3 +1133,133 @@ Advanced Sass Theming
       }
     }
   }
+
+Things to look for in your CSS code.
+
+Complex Math => try Functions
+
+Associated Data => try Maps
+
+Repetetive Module Styles => try Loops,
+  Mixins, Extends.
+
+
+## Media Queries - Section 5
+
+Media Queries allow you to conditionally load styles based on things like
+page width, orientation, and even environmental lighting.
+
+You nest declarations within media queries.
+
+e.g.
+
+  @media screen and (max-width: 500px) {
+    .sidebar {
+      float: none;
+      width: 100%;
+    }
+  }
+
+In Sass you can nest your media queries under any declaration
+
+e.g.
+
+.sidebar {
+  float: left;
+  width: 35%;
+
+  @media screen and (max-width: 800px) {
+    width: 25%;
+  }
+
+  @media screen and (max-width: 500px) {
+    float: none;
+    width: 100%;
+
+    a { display: block }
+  }
+}
+
+becomes:
+
+.sidebar {
+  float: left;
+  width: 35%;
+}
+@media screen and (max-width: 800px) {
+  .sidebar {
+    width: 25%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .sidebar {
+    float: none;
+    width: 100%;
+  }
+  .sidebar a { 
+    display: block; 
+  }  
+}
+
+$breakpoints should be made into variables.
+
+You can make the whole media query into a variable, You then
+have to interpolate the variables so that Sass compiles them.
+
+e.g.
+
+  $mobile-med: "screen and (min-width: 480px)";
+  $tablet-port: "screen and (min-width: 768px)";
+
+  .sidebar {
+    float: left;
+    width: 35%;
+
+    @media #{$modile-med} {
+      float: none;
+      width: 100%;
+
+      a { display: block; }
+    }
+  }
+
+Media Queries @content
+
+  @mixin respond-to($breakpoint) {
+    @if $breakpoint == tablet-large {
+      @media only screen and (max-width: $width-large) {
+        @content;
+      }
+    } @else if $breakpoint == mobile-large {
+      @media only screen and (max-width: $width-small) {
+        @content;
+      }
+    }
+  }
+
+  .sidebar {
+    width: 35%;
+
+    @include respond-to(tablet-large) {
+      width: 25%;
+    }
+
+    @include respond-to(mobile-large) {
+      width: 100%;
+      a { display: block; }
+    }
+  }
+
+# Media Query Gotchyas
+
+Class & placeholder declarations created outside of a media
+query cannot be @extended within it.
+
+Output can get rather lengthy.
+
+Sass doesn't group like media queries.
+
+Sometimes it's best not to nest your media queries so granularly.
+
+Keep an eye on your output.
+
