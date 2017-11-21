@@ -253,45 +253,179 @@ becomes:
 
   <p><a href="http://example.com/">http://example.com/</a></p>
 
+or an e-mail address wrapped in angle brackets creates a mailto field
+
+  <address@example.com>
+
+becomes:
+
+  <p><a href="mailto:address@example.com">address@example.com</a></p>
+
 > Inserting blockquotes
 
+Adding a > before a paragraph creates a blockquote.
 
+adding additional > allows you to nest blockquotes.
 
+  > A blockquote.
+  Another line of blockquote.
+
+becomes:
+
+  <blockquote>
+    <p>A blockquote.
+    Another line of blockquote.</p>
+  </blockquote>
 
 > Inserting code blocks
 
+code blocks can be created by indenting every line by four spaces
+or one tab.
 
+    echo 'Hello World'
+
+becomes:
+
+  <pre><code>echo 'Hello World'</code></pre>
 
 
 > Inserting Code Spans
 
+Code spans can be creaed with ` `
 
+  Type `echo 'Hello World'` in your terminal
 
+becomes:
+
+  <p>Type <code>echo 'Hello World'</code> in your terminal</p>
 
 
 > Inserting Images
 
+Inserting images is similar to inserting links except you add an exclamation mark to to the 
+beginning of the square brackets.
 
+inline:
+
+  ![Alt text](/path/to/img.jpg "Optional Title)
+
+becomes:
+
+  <p><img src="/path/to/img.jpg" alt="Alt text" title="Optional title" /></p>
+
+reference:
+
+  ![Alt text][id]
+
+later:
+
+  [id]: url/to/image "Optional title attribute"
+
+becomes:
+
+  <p><img src="url/to/image" alt="Alt text" title="Optional title attribute" /></p>
 
 > Inserting Horizontal rules
 
+insert three or more hyphens ( - ) astericks ( * ) or underscores ( _ ) on a line to create a horizontal rule
+
+---
+___
+***
+* * * 
+****
+
+all create
+
+<hr />
 
 
 > Inserting backslash escapes
 
+All weird symbols need to be escaped with a \ if you want them to appear as text.
+
 
 > Raw HTML
 
-
+You can also add rawe HTML anywhere into a markdown document.
 
 # Top 8 Features
 
 
+1 - Forum and Discussion
+
+Many forums and websites use markdown to facilitate easy discussion.
+
+Some websites create their own 'flavoured' markdown to add additional features to the language.
+
+e.g. https://help.github.com/categories/writing-on-github/ - Github markdown.
+
+GFM - Github Flavoured Markdown
+
+  treats all newlines as real line breaks.
+
+  ignores multiple underscores in words.
+
+  creates automatic links for standard urls.
+
+  Fenced code blocks can be wrapped in ``` instead of having to use lots of indentation.
+
+  if you add a language identifier to your code block, syntax hightlighting can be created.
 
 
+2 - Writing E-mails
+
+We can use markdown to create e-mails, and then render them just before sending.
 
 
+3 - Create and share documents
 
+e.g. http://hashify.me/
+
+e.g. http://socrates.io/
+
+4 - Blogging
+
+It's possible to use blogging platforms with markdown to create web content.
+
+wordpress has extensions and even dropbox can allow you to publish articles using markdown.
+
+Dropbox markdown blogging platforms include 
+
+  http://calepin.co/
+
+  http://scriptogr.am/
+
+
+5 - To do lists.
+
+  Can use markdown to create to do lists.
+
+  e.g. https://cheddarapp.com/
+
+6 - Presentations
+
+  One can create beautiful interactive presentations with JS and markdown.
+
+  reveal.js -> a <section></section> represents one slide.
+
+  deck.js
+
+7 - Converting to other formats.
+
+  pandoc is the tool to use.
+
+8 - Markdown extensions
+
+MultiMarkdown is a popular super set of markdown syntax that can be found at 
+  http://fletcherpenney.net/multimarkdown/
+
+Some additions include:
+  Footnotes
+  Tables
+  Citations and bibliography
+  Math Support
+  smart Typography with multi-lingual support
 
 
 # People and places you should get to know
