@@ -14,6 +14,5 @@ $scale-amount: 1.1;
 $hover-darken: .5;
 
 $base-width: 1200px;
-$mobile-large-width: 480px;
 
-$mobile-large: "screen and (max-width: #{$mobile-large-width})";
+$breakpoint-small: 480px;

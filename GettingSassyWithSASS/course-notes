@@ -1263,3 +1263,106 @@ Sometimes it's best not to nest your media queries so granularly.
 
 Keep an eye on your output.
 
+
+
+## Section Five - Modular Architecture Explained
+
+Modular Architecture is the abstraction of repitition into "objects"
+  - Objects / Modules / blocks
+    .header, .footer, .comment, .button etc
+
+  - Parent - Child Relationships
+    .media, .media__img, .media__body, etc
+
+  - Modifiers & States
+    .btn--primary, .btn--small, .btn.is-selected, etc
+
+
+Modular Architecture Methodology
+  - Thinking in modules with various states.
+    .btn, .btn--primary, .btn--disabled
+
+  - Class VS. IDs VS. Child Selectors
+
+  - Naming Conventions
+    Semantic - .content, .news__title, .callNow
+    Presentational - .grid__col--9
+
+Goals of Modular Architecture
+  - Modularity - new page, 0 new lines of CSS
+
+  - Scalability (specificity isn't an issue)
+
+  - Maintainability.
+
+  - DRY & Organised.
+
+Modular Architecture Methodologies
+
+  OOCSS - Nicole Sullivan
+
+  SMACSS - Jonathan Snook
+
+  Atomic Design - Brad Frost
+
+  BEM - Yandex
+
+  Dry CSS - Jeremy Clarke
+
+  MVCSS - Envy Labs
+
+  CSS for Grown Ups - Andy Hume
+
+
+## Section Six - 
+
+Libraries 
+  - Compass:
+    - Compass is an open-source CSS Authoring Framework" ~ Compass
+    - CSS3 Mixins
+    - Typography pattern tools
+    - Lots of other utilities
+
+  - Bourbon:
+    - A simple lightweight mixin library for Sass
+      - CSS3 Mixins
+      - Vanilla styles
+      - super slim
+      - No configuration
+
+  - SUSY
+    - Responsive grids for Compass
+    - Grid mixins
+    - very flexible
+
+  - Normalize.css w/ Sass or Compass
+  - Modular Scale (Compass Extension)
+  - Breakpoint (Compass Extension)
+  - Foundation or Bootstrap Sass
+  
+  and more at Sache.in
+
+Tools GUIs
+  - CodeKit (OS X)
+  - Compass.app
+  - Scout
+
+Sass Other Stuff
+  - Selector Functions
+    ie selector-append(&, '--mod')
+
+  - @at-root directive
+
+  - @warn, @debug, @error
+
+  - Comments via /* */ and //
+
+  And much more.
+
+  Closing Tips
+    - one step at a time
+    - check your output
+    - Mind your @mixins and @media queries
+    - Don't @extend too much
+    - Enable Sass sourcemaps for debugging
+    - Modules, modules, modules.
