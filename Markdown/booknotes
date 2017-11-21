@@ -1,0 +1,297 @@
+#################################
+#                               #
+# Book Notes - Instant Markdown #
+#                               #
+#################################
+
+## Chapter 1 - Instant Markdown
+
+Aims, By the end I should be able to:
+
+> Participate in forums and discussions: Use Markdown on different websites
+> Writing e-mails: Write e-mails with Markdown quickly and easily
+> Sharing Documents: Share a single Markdown document with others
+> Blogging: Create a blog using Markdown
+> To-Do Lists: Create To-Do lists with Markdown
+> Presentations: Create beautiful, simple, and interactive presentations.
+> Converting files to other formats: convert a document to other formats such as PDF
+> Using Markdown extensions: Use extensions to get more advanced features.
+
+# So, What is Markdown?
+
+Markdown was created in 2004 by John Gruber with contributions and feedback from Aaron Schwartz.
+
+It is described by Gruber as:
+
+  "A text-to-HTML conversion tool for web writers. Markdown allows you to write using an easy-to-read,
+  easy-to-write plan text format, then convert it to structurally valid XHTML (or HTML)" 
+
+Markdown is two different things:
+  > A simple syntax to create documents in plan text
+  > A software tool written in PERL that convert the plain text to HTML
+
+Main features:
+  > Easy to use
+  > Fast
+  > Clean
+  > Flexible
+  > Portable
+  > Made for writers
+
+
+
+
+# Installation
+
+DONE!
+
+# Quick Start
+
+> Inserting paragraphs and Line breaks
+
+A Paragraph of text is one or more consecutive lines of text.
+
+  A paragraph,
+  divided into two lines.
+
+becomes
+
+  <p>A paragraph,
+  divided into two lines.</p>
+
+Paragraphs separated by one or more lines will create new paragraphs:
+
+  A paragraph
+
+  Another paragraph, separated by a new line.
+
+becomes:
+
+  <p>A paragraph</p>
+  <p>Another paragraph, separated by a new line.</p>  
+
+Two or more sentences at the end of a sentence creates a line break
+
+  A sentence,  
+  with a line break.  
+
+becomes:
+
+  <p>A sentence, <br />
+  with a line break</p>
+
+> Inserting Headers
+
+There are two styles: setext and atx.
+-setext style
+
+There are two top level headers <h1> and <h2>
+
+  Header 1
+  ========
+
+  Header 2
+  --------
+
+becomes:
+
+  <h1>Header 1</h1>
+  <h2>Header 2</h2>
+
+-atx style
+
+Begin a Paragraph with a hash and that paragraph becomes a header. number of hashes
+dictates which header level it is.
+
+  # Header 1
+  ## Header 2
+  ### Header 3
+  #### Header 4
+  ##### Header 5
+  ###### Header 6
+
+We close the Header with the same number of hashes.
+
+e.g.
+
+  # Header 1 #
+  ## Header 2 ##
+  ### Header 3 ###
+  #### Header 4 ####
+  ##### Header 5 #####
+  ###### Header 6 ######
+
+becomes:
+
+  <h1>Header 1</h1>
+  <h2>Header 2</h2>
+  <h3>Header 3</h3>
+  <h4>Header 4</h4>
+  <h5>Header 5</h5>
+  <h6>Header 6</h6>
+
+> Inserting emphasis
+
+a single * or underscore creates an <em> while double * or underscores create a strong element
+
+  *single asterisks*
+  _single underscores_
+  **double asterisks**
+  __double underscores__
+
+becomes
+
+  <em>single asterisks</em>
+  <em>single underscores</em>
+  <strong>double asterisks</strong>
+  <strong>double underscores</strong>
+
+> Inserting Lists
+
+-Ordered Lists use numbers as list markers
+
+  1. One
+  2. Two
+  6. Six
+
+becomes:
+
+  <ol>
+    <li>One</li>
+    <li>Two</li>
+    <li>Six</li>
+  </ol>
+
+- Unordered lists use astericks, plus signs and hyphens as list markers
+
+  * A list.
+  * Second element.
+  + A new entry.
+  - Another entry in a list.
+  - And the list goes on.
+
+becomes:
+
+  <ul>
+    <li>A list.</li>
+    <li>Second element.</li>
+    <li>A new entry.</li>
+    <li>Another entry in a list.</li>
+    <li>And the list goes on.</li>
+  </ul>
+
+Lists can be nested withe the use of spaces. (Might have to be 4 spaces?)
+
+e.g.
+
+  - First level
+      - Second level
+          - Third level
+      - Second level again
+
+becomes:
+
+<ul>
+  <li>First level
+  <ul><li>Second level
+      <ul><li>Third level</li></ul></li>
+      <li>Second level again</li></ul></li>
+</ul>
+
+
+> Inserting Links
+
+Two styles of links:
+
+  inline & reference
+
+- inline
+
+We use square brackes to wrap the exposed text, and use brackets to mark the link. A title attribute
+is created with the use of "" after the link.
+
+  An example of [inline link](http://example.com "Example").
+  [This link](http://example.net/) has no title attribute.  
+
+becomes:
+
+  <p>An example of <a href="http://example.com"title="Example">inline link</a>.</p>
+  <p><a href="http://example.net/">This link</a> has no titleattribute.</p>
+
+- Reference
+
+You can create the stucture of the link in the text:
+
+  This is [an example][id] reference-style link.
+  This is [an example] [id] reference-style link.
+
+then later, reference this link with the details:
+
+  [id]: http://example.com/ "Optional Title Here"
+
+You can use " ' or ( to wrap optional title.
+
+Or you can reference the link text directly.
+
+e.g.
+
+  This is [another example] reference-style link.
+
+then:
+
+  [another example]: http://example.com/
+
+> Inserting Automatic Links
+
+Can be created by wrapping a URL in angle brackes < >
+
+e.g.
+
+  <http://example.com/>
+
+becomes:
+
+  <p><a href="http://example.com/">http://example.com/</a></p>
+
+> Inserting blockquotes
+
+
+
+
+> Inserting code blocks
+
+
+
+
+> Inserting Code Spans
+
+
+
+
+
+> Inserting Images
+
+
+
+> Inserting Horizontal rules
+
+
+
+> Inserting backslash escapes
+
+
+> Raw HTML
+
+
+
+# Top 8 Features
+
+
+
+
+
+
+
+
+
+# People and places you should get to know
