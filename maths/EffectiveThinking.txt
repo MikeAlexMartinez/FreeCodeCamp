@@ -1,0 +1,154 @@
+##########################################
+# Effective Thinking through Mathematics #
+##########################################
+
+5 Elements of Effective Thinking
+
+-> The Heart of Mathematics (Book)
+
+-> 5 Elements of Effective Thinking (Book)
+
+# 1 -> Understand Deeply
+
+  Don't face complex issues head-on. First understand simple ideas deeply. Clear the clutter and expose what
+  is really important. Be brutally honest about what you know and don't know. Then see what's missingm identify 
+  the gaps, and fill them in. Let go of bias, prejudice, and preconceived notions. There are degrees to
+  understanding (it's not just a yes-or-no proposition) and you can always heighten yours. Rock solid understanding
+  is the foundation for success.
+
+# 2 -> Make Mistakes (Fail To Succeed)
+
+  Fail to succeed. Intentionally get it wrong to inevitably get it even more right. Mistakes are great teachers.
+  They highlight unforeseen opportunities and holes in your understanding. They also show you which way to turn 
+  next and they ignite your imagination.
+
+# 3 -> Raise Questions
+
+  Constantly create questions to clarify and extend yoru understanding. What's the real question? Working 
+  on the wrong questions can waste a lifetime. Ideas are in the air - the right questions will bring them out
+  and help you see connections that otherwise would have been invisible. 
+
+# 4 -> Follow the flow of Ideas (The evolution of a subject)
+
+  Look back to see where ideas came from and then look ahead to discover where those ideas may lead. A new
+  idea is a beginning, not an end. Ideas are rare - milk them. Following the consequences of small ideas can 
+  result in bug payoffs.
+
+# 5 -> Change -> Improve and think effectively
+
+  The unchanging element is change - by mastering the first four elements, you can change the way you think
+  and learn. You can always improve, grow, and extract more out of your education, yourself, and the way you 
+  live your life. Change is the universal constant that allows you to get the most out of living and learning. 
+
+Einsteing => "The whole of science and mathematics
+is merely a refinement of everyday thinking."
+
+Uncover the essence of a problem.
+  This puzzle has many complications.
+
+  Ignore superfluos features of a challenge.
+
+"That's a Meanie Genie"
+
+Murray appeared from a lamp. 3 wishes.
+
+wished to find jewel
+
+9 stones -> one with jewel weiggs more.
+
+Three groups of three
+
+if six stones match we can elimate all six stones that have all been weighed leaving us with the remaining
+three. If they don't match we keep the stones from the heavier set of scales eliminating the six we didn't
+weight and also the three stones that were on the lighter side of the scales.
+
+Once left with three stones we can repeat the same process.
+
+If the two weighed stones match we keep the stone that wasn't weighed. If the weighed stones are different
+we keep the heavier of the stones being weighed and discard the other stones.
+
+Tips & Strategies
+
+Just try something!
+
+Be Systematic!
+
+What are all the possibilities.
+
+People get bogged down. Discarding original decisions and articulating why you are doing so 
+is a very valuable exercise.
+
+Systematically test assumptions instead of dismissing strategies out right without testing them.
+
+Develop a strategy for gaining knowledge from the tools you have to work with.
+
+
+"A shaky story"
+
+Tips
+
+Simplify problem and solve that to see if you learn any strategies or rules for the problem.
+
+Stacey will have shook hands with the middle number of people.
+
+Tips
+
+Write things down -> articulate what you are thinking, assumptions you make and why you are making them.
+
+See through assumptions to completion and step through scenarios methodically.
+
+Consider all possibilities!
+
+Other puzzles 
+  Fountain of knowledge - 6 ounce 10 ounce -> fill 10 ounce with 8 ounces. (no markings)
+
+  steps: fill 6       6  0
+         move to 10   0  6
+         fill 6       6  6
+         move to 10   2  10
+         empty 10     2  0
+         move to 10   0  2
+         fill 6       6  2
+         move to 10   0  8
+
+  Dropping Trousers
+    take off shorts -> feed short leg through other short leg. then turn inside out. Pull up. BOOM
+
+  Profit
+     A dealer bought an article for $7, sold it for $8, bought it back for $9, and sold it for $10. How much 
+     profit did she make?
+      £2
+
+  Late night cash
+    David and Paul have £30, how much must david give paul so that paul has £10 more than david? 
+      £5
+    d = 30
+    p = 30
+    d - 5 = 25
+    p + 5 = 35
+    p - d = 10
+
+  A fair fare:
+     Three strangers, Bob, Mary, and Ivan, meet at a taxi stand and decide to share a cab to cut down the 
+     cost. They have different destinations, but all the destinations are right on the highway leading from 
+     the airport, so no circuitous driving is required. Bob’s destination is 10 miles away, Mary’s is 20 
+     miles, and Ivan’s is 30 miles. The taxi costs $1.50 per mile including the tip regardless of the number 
+     of passengers. How much should each person pay? (Note: There is more than one way of looking at this 
+     situation.
+
+     Total distance travelled is 30 + 20 + 10 = 60
+     cab fare = 1.5 * 30 = 45
+     cost per mile is 45 / 60 = 0.75
+     Bob = 7.50
+     Mary = 15
+     Ivan = 22.50
+     total = 45
+
+
+Infinity
+Sharing candy before you can count!
+  Can match two things up in correspondence. Tell if shared equally.
+  If they have the same cardinality they are said to be equal in size (when dealing with infinity)
+
+Key is to understand the question. Once you understand the question you can make a reasonable attmept 
+at finding a solution.
